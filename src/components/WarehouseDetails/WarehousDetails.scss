@@ -1,8 +1,19 @@
+.label{
+    color: grey;
+    font-size: 1.2rem;
+}
+.address,.phoneNumber,.email,.contactName,.contactPosition{
+    font-size: 1.6rem;
+}
+.address{
+    width: 40%;
+    line-height: 1.4;
+}
 .warehouseDetails{
-    border: 1px solid black;
-    max-width: 80%;
-    border-radius: 3px;
-    margin: 0 auto;
+    // border: 1px solid black;
+    // max-width: 80%;
+    // border-radius: 3px;
+    // margin: 0 auto;
     &__header{
         display: flex;
         justify-content: space-between;
@@ -27,5 +38,18 @@
         &--icon{
             // background-color: white;
         }
+    }
+    &__info{
+        display: flex;
+        padding: 2.4rem 4rem;
+        &--address{
+            flex: 0 1 40%;
+        }
+    }
+    &__contact{
+        border-left: 1px solid gray;
+        display: flex;
+        gap: 2.8rem;
+        padding-left: 4rem;
     }
 }
