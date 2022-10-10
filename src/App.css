@@ -1,0 +1,6 @@
+.container{
+   border: 1px solid black;
+    max-width: 80%;
+    border-radius: 3px;
+    margin: 0 auto;
+}

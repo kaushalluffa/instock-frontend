@@ -1,4 +1,4 @@
-import "./header.scss"
+import "./headeer.scss"
 import React from "react"
 
 export default function Header() {
