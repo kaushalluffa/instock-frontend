@@ -9,6 +9,15 @@
     width: 40%;
     line-height: 1.4;
 }
+.icon{
+    width: .6rem;
+    height: 1.2rem;
+}
+.tag{
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+}
 .warehouseDetails{
     // border: 1px solid black;
     // max-width: 80%;
@@ -51,5 +60,17 @@
         display: flex;
         gap: 2.8rem;
         padding-left: 4rem;
+    }
+    &__inventory{
+        display: flex;
+        flex-direction: column;
+        &--tags{
+            background-color: grey;
+            display: flex;
+            justify-content: space-between;
+            padding: 1.1rem 4rem;
+            color: white;
+            font-size: 1.2rem;
+        }
     }
 }
