@@ -1,28 +1,5 @@
-.label{
-    color: grey;
-    font-size: 1.2rem;
-}
-.address,.phoneNumber,.email,.contactName,.contactPosition{
-    font-size: 1.6rem;
-}
-.address{
-    width: 40%;
-    line-height: 1.4;
-}
-.icon{
-    width: .6rem;
-    height: 1.2rem;
-}
-.tag{
-    display: flex;
-    align-items: center;
-    gap: .1rem;
-}
+
 .warehouseDetails{
-    // border: 1px solid black;
-    // max-width: 80%;
-    // border-radius: 3px;
-    // margin: 0 auto;
     &__header{
         display: flex;
         justify-content: space-between;
@@ -44,15 +21,12 @@
         padding: .8rem 1.6rem;
         border-radius: 2rem;
         color: white;
-        &--icon{
-            // background-color: white;
-        }
     }
     &__info{
         display: flex;
         padding: 2.4rem 4rem;
         &--address{
-            flex: 0 1 40%;
+            flex: 0 1 50%;
         }
     }
     &__contact{
@@ -71,6 +45,58 @@
             padding: 1.1rem 4rem;
             color: white;
             font-size: 1.2rem;
+            
+        }
+        &--items{
+            display: flex;
+            flex-direction: column;
+        }
+        &--item{
+            display: flex;
+            justify-content: space-between;
+            padding: 1.1rem 4rem;
+            align-items: center;
+            font-size: 1.2rem;
+            
         }
     }
+}
+.label{
+    color: grey;
+    font-size: 1.2rem;
+}
+.address,.phoneNumber,.email,.contactName,.contactPosition{
+    font-size: 1.6rem;
+}
+.address{
+    width: 50%;
+    line-height: 1.4;
+}
+.icon{
+    width: .6rem;
+    height: 1.2rem;
+}
+.tag{
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+}
+.itemName,.itemActions{
+    display: flex;
+    align-items: center;
+   
+    
+}
+.itemStatus{
+    color: white;
+    border-radius: 2rem;
+    padding: .4rem .8rem;
+}
+.instock{
+    background-color: lightgreen;
+    color: green;
+}
+.outofstock{
+    background-color: lightcoral;
+    color: red;
 }
