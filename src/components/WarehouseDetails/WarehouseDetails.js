@@ -3,6 +3,7 @@ import ArrowBack from "../../assets/icons/arrow_back-24px.svg";
 import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg";
 import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg";
 import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg";
+import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg";
 import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg";
 import "./WarehousDetails.scss";
 //ignore this import its just dummy data everything will be replaced with a fetch request from api
@@ -28,7 +29,9 @@ function WarehouseDetails() {
           <span className="warehouseDetails__name--icon">
             <img src={ArrowBack} alt="icon" />
           </span>
-          <h1 className="warehouseDetails__name--heading">{wareHouse[0]?.warehouseName}</h1>
+          <h1 className="warehouseDetails__name--heading">
+            {wareHouse[0]?.warehouseName}
+          </h1>
         </div>
         <div className="warehouseDetails__button">
           <EditBtn />
@@ -60,7 +63,79 @@ function WarehouseDetails() {
       hardcoded info inside above section will be replaced with variables when fetched from the api
        */}
       <div className="warehouseDetails__inventory">
-        <div className="warehouseDetails__inventory--tags">
+        <table>
+          <tr className="warehouseDetails__inventory--tags">
+            <th>
+              <div className="tag">
+                INVENTORY ITEM <TagsArrows />
+              </div>
+            </th>
+            <th>
+              <div className="tag">
+                CATEGORY <TagsArrows />
+              </div>
+            </th>
+            <th>
+              <div className="tag">
+                STATUS <TagsArrows />
+              </div>
+            </th>
+            <th>
+              <div className="tag">
+                QTY <TagsArrows />
+              </div>
+            </th>
+            <th>
+              <div className="tag">
+                ACTIONS <TagsArrows />
+              </div>
+            </th>
+          </tr>
+          {/* {wareHouse.map((singleWareHouse) => (
+            <tr
+              className="warehouseDetails__inventory--item"
+              key={singleWareHouse.id}
+            >
+              <td>
+                <Link
+                  to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}
+                >
+                  <div className="itemName">
+                    {singleWareHouse.itemName} <ChevronRight />
+                  </div>
+                </Link>
+              </td>
+              <td>
+                <div className="itemCategory">{singleWareHouse.category}</div>
+              </td>
+              <td>
+                <div
+                  className={
+                    singleWareHouse.status === "In Stock"
+                      ? "instock itemStatus"
+                      : "outofstock itemStatus"
+                  }
+                >
+                  {singleWareHouse.status}
+                </div>
+              </td>
+              <td>
+                <div className="itemQty">{singleWareHouse.quantity}</div>
+              </td>
+              <td>
+                <div className="itemActions">
+                  <div className="deleteBtn">
+                    <DeleteBtn />
+                  </div>
+                  <div className="editBtn">
+                    <EditBtnBlue />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          ))} */}
+        </table>
+        {/* <div className="warehouseDetails__inventory--tags">
           <div className="tag">
             INVENTORY ITEM <TagsArrows />
           </div>
@@ -96,12 +171,12 @@ function WarehouseDetails() {
                   <DeleteBtn />
                 </div>
                 <div className="editBtn">
-                  <EditBtn />
+                  <EditBtnBlue />
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

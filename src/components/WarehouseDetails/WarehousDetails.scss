@@ -50,6 +50,7 @@
       padding: 1.1rem 4rem;
       color: $slate;
       font-size: 1.2rem;
+      width: 100%;
     }
     &--items {
       display: flex;
@@ -62,6 +63,8 @@
       align-items: center;
       font-size: 1.2rem;
       border-bottom: 1px solid $cloud;
+      width: 100%;
+
     }
   }
 }
@@ -94,7 +97,9 @@
 .itemActions {
   display: flex;
   align-items: center;
-  
+}
+.itemActions{
+  gap: .6rem;
 }
 .itemName {
     color: $instock-indigo;
