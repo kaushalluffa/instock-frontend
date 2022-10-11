@@ -28,11 +28,11 @@ function WarehouseDetails() {
           <span className="warehouseDetails__name--icon">
             <img src={ArrowBack} alt="icon" />
           </span>
-          <h1>{wareHouse[0]?.warehouseName}</h1>
+          <h1 className="warehouseDetails__name--heading">{wareHouse[0]?.warehouseName}</h1>
         </div>
         <div className="warehouseDetails__button">
           <EditBtn />
-          <span>Edit</span>
+          <h3>Edit</h3>
         </div>
       </div>
       {/*
@@ -40,17 +40,17 @@ function WarehouseDetails() {
        */}
       <div className="warehouseDetails__info">
         <div className="warehouseDetails__info--address">
-          <p className="label">WAREHOUSE ADDRESS:</p>
+          <h3 className="label">WAREHOUSE ADDRESS:</h3>
           <p className="address">33 Pearl Street SW, Washington, USA</p>
         </div>
         <div className="warehouseDetails__contact">
           <div className="warehouseDetails__contact--name">
-            <p className="label">CONTACT NAME:</p>
+            <h3 className="label">CONTACT NAME:</h3>
             <p className="contactName">Graeme Lyon</p>
             <p className="contactPosition">Warehouse Manager</p>
           </div>
           <div className="warehouseDetails__contact--info">
-            <p className="label">CONTACT INFORMATION:</p>
+            <h3 className="label">CONTACT INFORMATION:</h3>
             <p className="phoneNumber">{`+1 (647)504-0911`}</p>
             <p className="email">glyon@instock.com</p>
           </div>
