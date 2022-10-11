@@ -13,7 +13,9 @@ export default function Header() {
         <div className="navbar">
           <div className="navbar__link">
             <Link to="/warehouse">
-              <button className="navbar__link--btn btn">Warehouse</button>
+              <button className="navbar__link--btn active btn">
+                Warehouse
+              </button>
             </Link>
             <Link to="/inventory">
               <button className="navbar__link--btn btn">Inventory</button>

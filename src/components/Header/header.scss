@@ -1,7 +1,62 @@
+@use "../../assets/partials/variables" as *;
+
+.header {
+  width: 100%;
+  height: 12.5rem;
+  background-color: $graphite;
+
+  @include tablet {
+    height: 11.625rem;
+  }
+}
 .header-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: blue;
-  justify-content: center;
+
+  justify-content: left;
   align-items: center;
+  padding: 1.5rem 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 2rem 1rem;
+    align-items: center;
+  }
+}
+.navbar__logo {
+  padding: 1rem;
+  @include tablet {
+    padding: 0 2rem;
+  }
+}
+
+.navbar {
+  padding: 0 1rem;
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    &--btn {
+      width: 10.25rem;
+      height: 2.25rem;
+      border: none;
+      padding: 0.5rem 1rem;
+      background: none;
+      color: $light-grey;
+      border-radius: 10rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.active {
+  color: $white;
+  background: $instock-black;
 }
