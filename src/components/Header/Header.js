@@ -1,4 +1,4 @@
-import "./headeer.scss"
+
 import React from "react"
 import { Link } from "react-router-dom"
 import Logo from "../../assets/logo/InStock-Logo_1x.png"
