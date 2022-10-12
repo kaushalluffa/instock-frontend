@@ -1,19 +1,20 @@
 @import "../../assets//partials/variables";
+
 .warehouseDetails {
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.2rem 4rem;
+    padding: 1.6rem 4rem;
     border-bottom: 1px solid $cloud;
   }
   &__name {
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    &--heading{
-        font-size: 3.2rem;
-        line-height: 4rem;
+    &--heading {
+      font-size: 3.2rem;
+      line-height: 4rem;
     }
   }
   &__button {
@@ -43,6 +44,7 @@
   &__inventory {
     display: flex;
     flex-direction: column;
+
     &--tags {
       background-color: $light-grey;
       display: flex;
@@ -64,7 +66,6 @@
       font-size: 1.2rem;
       border-bottom: 1px solid $cloud;
       width: 100%;
-
     }
   }
 }
@@ -98,11 +99,11 @@
   display: flex;
   align-items: center;
 }
-.itemActions{
-  gap: .6rem;
+.itemActions {
+  gap: 0.6rem;
 }
 .itemName {
-    color: $instock-indigo;
+  color: $instock-indigo;
   transition: all 0.3s;
   &:hover {
     text-decoration: underline;
@@ -112,7 +113,6 @@
   color: $white;
   border-radius: 2rem;
   padding: 0.4rem 0.8rem;
-  
 }
 .instock {
   background-color: rgba($color: $green, $alpha: 7%);
@@ -121,4 +121,15 @@
 .outofstock {
   background-color: rgba($color: $red, $alpha: 7%);
   color: $red;
+}
+table {
+  width: 100%;
+}
+
+td,
+th {
+  display: flex;
+  justify-content: center;
+  flex: 0 1 20%;
+  text-align: center;
 }
