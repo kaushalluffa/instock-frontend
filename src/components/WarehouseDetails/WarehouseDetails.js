@@ -1,26 +1,28 @@
-import React from "react"
-import ArrowBack from "../../assets/icons/arrow_back-24px.svg"
-import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg"
-import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg"
-import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg"
-import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg"
-import "./WarehousDetails.scss"
+import React from "react";
+import ArrowBack from "../../assets/icons/arrow_back-24px.svg";
+import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg";
+import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg";
+import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg";
+import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg";
+import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg";
+import "./WarehousDetails.scss";
+
 //ignore this import its just dummy data everything will be replaced with a fetch request from api
-import demoData from "../../assets/data/inventories.json"
-import { Link, useParams } from "react-router-dom"
+import demoData from "../../assets/data/inventories.json";
+import { Link, useParams } from "react-router-dom";
 // the following function filters out the warehouse and its inventory but it will be replaced by a fetch request
 
 ////////////////////////////
 function details(wareHouseName) {
   const filteredWarehouse = demoData.filter(
     (d) => d.warehouseName.toLowerCase() === wareHouseName.toLowerCase()
-  )
-  return filteredWarehouse
+  );
+  return filteredWarehouse;
 }
 /////////////////////////
 function WarehouseDetails() {
-  const { location } = useParams()
-  const wareHouse = details(location)
+  const { location } = useParams();
+  const wareHouse = details(location);
   return (
     <div className="warehouseDetails">
       <div className="warehouseDetails__header">
@@ -62,59 +64,86 @@ function WarehouseDetails() {
       hardcoded info inside above section will be replaced with variables when fetched from the api
        */}
       <div className="warehouseDetails__inventory">
-        <div className="warehouseDetails__inventory--tags">
-          <div className="tag">
-            INVENTORY ITEM <TagsArrows />
-          </div>
-          <div className="tag">
-            CATEGORY <TagsArrows />
-          </div>
-          <div className="tag">
-            STATUS <TagsArrows />
-          </div>
-          <div className="tag">
-            QTY <TagsArrows />
-          </div>
-          <div className="tag">
-            ACTIONS <TagsArrows />
-          </div>
-        </div>
-        <div className="warehouseDetails__inventory--items">
-          {wareHouse.map((singleWareHouse) => (
-            <div
-              className="warehouseDetails__inventory--item"
-              key={singleWareHouse.id}
-            >
-              <Link to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}>
-                <div className="itemName">
-                  {singleWareHouse.itemName} <ChevronRight />
+        <table>
+          <thead>
+            <tr className="warehouseDetails__inventory--tags">
+              <th>
+                <div className="tag">
+                  INVENTORY ITEM <TagsArrows />
                 </div>
-              </Link>
-              <div className="itemCategory">{singleWareHouse.category}</div>
-              <div
-                className={
-                  singleWareHouse.status === "In Stock"
-                    ? "instock itemStatus"
-                    : "outofstock itemStatus"
-                }
+              </th>
+              <th>
+                <div className="tag">
+                  CATEGORY <TagsArrows />
+                </div>
+              </th>
+              <th>
+                <div className="tag">
+                  STATUS <TagsArrows />
+                </div>
+              </th>
+              <th>
+                <div className="tag">
+                  QTY <TagsArrows />
+                </div>
+              </th>
+              <th>
+                <div className="tag">
+                  ACTIONS <TagsArrows />
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {wareHouse.map((singleWareHouse) => (
+              <tr
+                className="warehouseDetails__inventory--item"
+                key={singleWareHouse.id}
               >
-                {singleWareHouse.status}
-              </div>
-              <div className="itemQty">{singleWareHouse.quantity}</div>
-              <div className="itemActions">
-                <div className="deleteBtn">
-                  <DeleteBtn />
-                </div>
-                <div className="editBtn">
-                  <EditBtn />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                <td>
+                  <Link
+                    to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}
+                  >
+                    <div className="itemName">
+                      {singleWareHouse.itemName} <ChevronRight />
+                    </div>
+                  </Link>
+                </td>
+                <td>
+                  <div className="itemCategory">{singleWareHouse.category}</div>
+                </td>
+                <td>
+                  <div
+                    className={
+                      singleWareHouse.status === "In Stock"
+                        ? "instock itemStatus"
+                        : "outofstock itemStatus"
+                    }
+                  >
+                    {singleWareHouse.status}
+                  </div>
+                </td>
+                <td>
+                  <div className="itemQty">{singleWareHouse.quantity}</div>
+                </td>
+                <td>
+                  <div className="itemActions">
+                    <div className="deleteBtn">
+                      <DeleteBtn />
+                    </div>
+                    <div className="editBtn">
+                      <EditBtnBlue />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+       
       </div>
     </div>
-  )
+  );
 }
 
-export default WarehouseDetails
+export default WarehouseDetails;
