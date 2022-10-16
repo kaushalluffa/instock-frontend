@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import Header from "./components/Header/Header"
-import "./App.scss"
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './components/Header/Header';
+import './App.scss';
+import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import DeleteWarehouse from './components/DeleteWarehouse/DeleteWarehouse';
 
 function App() {
   return (
@@ -40,12 +41,12 @@ function App() {
             {/* route path for inventory */}
           </Route>
           <Route exact path="/">
-            {/* path for home page - warehouse */}
+            <DeleteWarehouse />
           </Route>
         </Switch>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
