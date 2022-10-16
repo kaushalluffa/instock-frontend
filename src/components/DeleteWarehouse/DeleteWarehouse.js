@@ -1,26 +1,15 @@
 import React from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './DeleteWarehouse.scss';
 import closeButton from '../../assets/icons/close-24px.svg';
 
-//ignore this import its just dummy data everything will be replaced with a fetch request from api
-import demoData from '../../assets/data/inventories.json';
-// the following function filters out the warehouse and its inventory but it will be replaced by a fetch request
-
 ////////////////////////////
-function details(wareHouseName) {
-  const filteredWarehouse = demoData.filter(
-    (d) => d.warehouseName.toLowerCase() === wareHouseName.toLowerCase()
-  );
-  return filteredWarehouse;
-}
-
-////////////////////////////
-export default function DeleteWarehouse({ props }) {
+export default function DeleteWarehouse() {
   let history = useHistory();
-  let { warehouse } = useParams();
-  //   let warehouseCap = warehouse.charAt(0) + warehouse.slice(1);
-  //function that capitalizes first letter of warehouse variable
+  let location = useParams();
+  //variable that capitalizes the first
+  let warehouse =
+    location.location.charAt(0).toUpperCase() + location.location.slice(1);
 
   //function that handles click outside of modal area and cancel button
   function back(e) {

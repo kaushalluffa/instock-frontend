@@ -11,7 +11,7 @@ function App() {
       <div className="container">
         <Switch>
           <Route path="/warehouse/delete/:location">
-            {/* add component for delete modal */}
+            <DeleteWarehouse />
           </Route>
           <Route path="/warehouse/edit/:location">
             {/* add component for edit modal */}
@@ -41,7 +41,7 @@ function App() {
             {/* route path for inventory */}
           </Route>
           <Route exact path="/">
-            <DeleteWarehouse />
+            {/* route path for / */}
           </Route>
         </Switch>
       </div>
