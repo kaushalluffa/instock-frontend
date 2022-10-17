@@ -5,10 +5,13 @@ import closeButton from '../../assets/icons/close-24px.svg';
 
 //Function that changes the first letter of the location coming through useParams() to upper case
 function upperCaseFirstLetter(string) {
+  //validates whether a valid location string has been received
   if (!string) {
     return 'Invalid Location';
   }
+  //saves the index of the space
   let spaceIndex = string.indexOf(' ');
+  //check whether are spaces or not.
   if (spaceIndex === -1) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   } else {
