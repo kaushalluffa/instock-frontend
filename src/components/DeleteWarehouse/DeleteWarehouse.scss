@@ -22,7 +22,7 @@
   border-radius: 0.188rem;
   &__icon-wrapper {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding: 1.313rem 1.313rem 0.313rem 0;
   }
   &__icon {
@@ -48,7 +48,7 @@
   &__btn-wrapper {
     padding: 0 4rem 2.5rem 0;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     gap: 1rem;
   }
