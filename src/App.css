@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Titillium Web", sans-serif;
+  @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+}
+@font-face {
+  font-family: "Titillium Web", sans-serif;
+  @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+}
+.container {
+  border: 1px solid #f7f8f9;
+  max-width: 80%;
+  border-radius: 3px;
+  margin: 0 auto;
+}/*# sourceMappingURL=App.css.map */
