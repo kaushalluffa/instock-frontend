@@ -1,26 +1,26 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import ArrowBack from "../../assets/icons/arrow_back-24px.svg"
 import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg"
 import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg"
 import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg"
 import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg"
 import "./WarehousDetails.scss"
-//ignore this import its just dummy data everything will be replaced with a fetch request from api
-import demoData from "../../assets/data/inventories.json"
-import { Link, useParams } from "react-router-dom"
-// the following function filters out the warehouse and its inventory but it will be replaced by a fetch request
 
-////////////////////////////
-function details(wareHouseName) {
-  const filteredWarehouse = demoData.filter(
-    (d) => d.warehouseName.toLowerCase() === wareHouseName.toLowerCase()
-  )
-  return filteredWarehouse
-}
-/////////////////////////
+import { Link, useParams } from "react-router-dom"
+import axios from "axios"
+
 function WarehouseDetails() {
   const { location } = useParams()
-  const wareHouse = details(location)
+   const [warehouseData, setWarehouseData] = useState([]);
+   const warehouseID = "2922c286-16cd-4d43-ab98-c79f698aeab0";
+   useEffect(() => {
+     axios({
+       method: "get",
+       url: `http://localhost:8080/inventory/${warehouseID}`,
+     }).then((res) => {
+       setWarehouseData(res.data);
+     });
+   }, []);
   return (
     <div className="warehouseDetails">
       <div className="warehouseDetails__header">
@@ -29,7 +29,7 @@ function WarehouseDetails() {
             <img src={ArrowBack} alt="icon" />
           </span>
           <h1 className="warehouseDetails__name--heading">
-            {wareHouse[0]?.warehouseName}
+            {warehouseData[0]?.warehouseName}
           </h1>
         </div>
         <div className="warehouseDetails__button">
@@ -80,7 +80,7 @@ function WarehouseDetails() {
           </div>
         </div>
         <div className="warehouseDetails__inventory--items">
-          {wareHouse.map((singleWareHouse) => (
+          {warehouseData.map((singleWareHouse) => (
             <div
               className="warehouseDetails__inventory--item"
               key={singleWareHouse.id}
