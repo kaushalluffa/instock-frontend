@@ -1,1 +1,15 @@
 @import "../../assets/partials/variables";
+
+* {
+  font-family: $titillium;
+}
+
+.invList_search-icon {
+  width: 17.5px;
+  height: 17.5px;
+}
+
+.invList_items-icons {
+  width: 18px;
+  height: 18px;
+}

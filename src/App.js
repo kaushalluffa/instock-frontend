@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import "./App.scss";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import InventoryList from "./components/InventoryList/InventoryList";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
             {/* route path for warehouse */}
           </Route>
           <Route exact path="/inventory">
-            {/* route path for inventory */}
+            {<InventoryList />}
           </Route>
           <Route exact path="/">
             {/* path for home page - warehouse */}
