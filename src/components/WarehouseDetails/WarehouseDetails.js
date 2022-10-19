@@ -4,6 +4,7 @@ import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg"
 import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg"
 import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg"
 import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg"
+import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg"
 import "./WarehousDetails.scss"
 
 import { Link, useParams } from "react-router-dom"
@@ -106,7 +107,7 @@ function WarehouseDetails() {
                   <DeleteBtn />
                 </div>
                 <div className="editBtn">
-                  <EditBtn />
+                  <EditBtnBlue />
                 </div>
               </div>
             </div>
