@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.2rem 4rem;
+    padding: 1.6rem 2.4rem;
     border-bottom: 1px solid $cloud;
   }
   &__name {
@@ -15,5 +15,8 @@
         font-size: 3.2rem;
         line-height: 4rem;
     }
+  }
+  &__container{
+    display: flex;
   }
 }

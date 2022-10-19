@@ -26,7 +26,7 @@ const AddNewInventoryItem = () => {
         setItemStatus(false)
     }
   }
-  console.log(itemStatus)
+  
   return (
     <div className="addNewItem">
       <div className="addNewItem__header">
@@ -37,6 +37,9 @@ const AddNewInventoryItem = () => {
           <h1 className="addNewItem__name--heading">Add New Inventory Item</h1>
         </div>
       </div>
+      <div className="addNewItem__container">
+        
+   
       <div className="addNewItem__details">
         <h2 className="addNewItem__details--heading">Item Details</h2>
         <div className="addNewItem__details--name">
@@ -135,6 +138,7 @@ const AddNewInventoryItem = () => {
             ))}
           </select>
         </div>
+      </div>
       </div>
       <div className="addNewItem__footer">
         <button className="addNewItem__footer--cancel">Cancel</button>
