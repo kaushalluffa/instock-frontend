@@ -9,7 +9,7 @@ function InventoryList() {
   return (
     <div className="invList">
       <div className="invList_container">
-        <p className="invList_header">Inventory</p>
+        <h1 className="invList_header">Inventory</h1>
         <input
           type={"text"}
           className="invList_search"
@@ -36,8 +36,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -53,8 +57,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -70,8 +78,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -87,8 +99,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -104,8 +120,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -121,8 +141,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -138,8 +162,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
 
@@ -155,8 +183,12 @@ function InventoryList() {
             <p>WAREHOUSE</p>
           </section>
           <section className="invList_items-icons">
-            <img src={deleteIcon} />
-            <img src={editIcon} />
+            <button>
+              <img src={deleteIcon} />
+            </button>
+            <button>
+              <img src={editIcon} />
+            </button>
           </section>
         </div>
       </div>
