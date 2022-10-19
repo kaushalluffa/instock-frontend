@@ -42,7 +42,15 @@ export default function DeleteWarehouse() {
 
   //function that deletes warehouse and send user back to previous page
   function submitDelete(e) {
-    //will add DELETE request
+    const url = 'http://localhost:8080/warehouses/delete/' + location.location;
+    //DELETE request
+    fetch(url, { method: 'DELETE' })
+      .then((response) => {
+        alert('Warehouse was delete from the system!');
+      })
+      .catch((e) => {
+        alert(e + ' - Warehouse not found');
+      });
     //prevent multiple clicks to bring the use further back into the route
     e.stopPropagation();
     //go back to the route in which this was called

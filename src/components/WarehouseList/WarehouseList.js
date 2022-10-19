@@ -98,7 +98,7 @@ function WarehouseList() {
         <div className="titleNames title-action">
           <Link
             to={{
-              pathname: '/warehouse/delete/new york',
+              pathname: '/warehouse/delete/washington',
               state: { background: location },
             }}>
             <img src={deleteIcon} className="deleteIcon" alt="delete" />
