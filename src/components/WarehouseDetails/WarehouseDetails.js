@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react"
-import ArrowBack from "../../assets/icons/arrow_back-24px.svg"
-import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg"
-import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg"
-import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg"
-import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg"
-import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg"
-import "./WarehousDetails.scss"
+import React, { useEffect, useState } from "react";
+import { ReactComponent as TagsArrows } from "../../assets/icons/sort-24px.svg";
+import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right-24px.svg";
+import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg";
+import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg";
+import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg";
+import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg";
+import "./WarehousDetails.scss";
 
-import { Link, useParams } from "react-router-dom"
-import axios from "axios"
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 function WarehouseDetails() {
-  const { location } = useParams()
-   const [warehouseData, setWarehouseData] = useState([]);
-   const warehouseID = "2922c286-16cd-4d43-ab98-c79f698aeab0";
-   useEffect(() => {
-     axios({
-       method: "get",
-       url: `http://localhost:8080/inventory/${warehouseID}`,
-     }).then((res) => {
-       setWarehouseData(res.data);
-     });
-   }, []);
+  const { location } = useParams();
+  const [warehouseData, setWarehouseData] = useState([]);
+  const warehouseID = "2922c286-16cd-4d43-ab98-c79f698aeab0";
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `http://localhost:8080/inventory/${warehouseID}`,
+    }).then((res) => {
+      setWarehouseData(res.data);
+    });
+  }, []);
   return (
     <div className="warehouseDetails">
       <div className="warehouseDetails__header">
         <div className="warehouseDetails__name">
           <span className="warehouseDetails__name--icon">
-            <img src={ArrowBack} alt="icon" />
+            <ArrowBack />
           </span>
           <h1 className="warehouseDetails__name--heading">
             {warehouseData[0]?.warehouseName}
@@ -113,9 +113,54 @@ function WarehouseDetails() {
             </div>
           ))}
         </div>
+        <div className="warehouseDetails__inventory--items-mobile">
+          {warehouseData.map((singleWareHouse) => (
+            <div
+              className="warehouseDetails__inventory--item-mobile"
+              key={singleWareHouse.id}
+            >
+              <div className="itemLeft-container">
+                <div className="tag-label">INVENTORY ITEM </div>
+                <Link
+                  to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}
+                >
+                  <span className="link-container">
+                    {singleWareHouse.itemName} <ChevronRight />
+                  </span>
+                </Link>
+                <div className="tag-label">CATEGORY </div>
+                <div className="itemCategory-mobile">
+                  {singleWareHouse.category}
+                </div>
+                <div className="cta-mobile">
+                  <DeleteBtn />
+                </div>
+              </div>
+              <div className="itemRight-container">
+                <div className="tag-label">STATUS </div>
+
+                <div
+                  className={
+                    singleWareHouse.status === "In Stock"
+                      ? "stockStatus-mobile instock"
+                      : "outofstock stockStatus-mobile"
+                  }
+                >
+                  {singleWareHouse.status}
+                </div>
+
+                <div className="tag-label">QTY </div>
+                <div className="itemQty-mobile">{singleWareHouse.quantity}</div>
+                <div className="cta-mobile" style={{ alignSelf: "flex-end" }}>
+                  <EditBtnBlue />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default WarehouseDetails
+export default WarehouseDetails;

@@ -7,7 +7,7 @@ import AddNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventor
 function App() {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <div className="container">
         <Switch>
           <Route path="/warehouse/delete/:location">
