@@ -25,7 +25,7 @@ function upperCaseFirstLetter(string) {
     );
   }
 }
-
+upperCaseFirstLetter('nome');
 export default function DeleteWarehouse() {
   let history = useHistory();
   let location = useParams();
@@ -50,10 +50,15 @@ export default function DeleteWarehouse() {
   }
 
   return (
-    <div onClick={back} className="modal-wrapper">
+    <div className="modal-wrapper">
       <div className="delete-warehouse">
         <div className="delete-warehouse__icon-wrapper">
-          <img className="delete-warehouse__icon" src={closeButton} alt="X" />
+          <img
+            onClick={back}
+            className="delete-warehouse__icon"
+            src={closeButton}
+            alt="X"
+          />
         </div>
         <h1 className="delete-warehouse__title">
           Delete {warehouse} warehouse?
