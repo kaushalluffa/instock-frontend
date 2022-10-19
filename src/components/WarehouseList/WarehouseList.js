@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import './WarehouseList.scss';
 import searchIcon from '../../assets/icons/search-24px.svg';
 import addIcon from '../../assets/icons/add-svgrepo-com.svg';
@@ -9,7 +8,6 @@ import editIcon from '../../assets/icons/edit-24px.svg';
 import rightIcon from '../../assets/icons/chevron_right-24px.svg';
 
 function WarehouseList() {
-  let location = useLocation();
   return (
     <div className="wrh-lst-cont">
       <div className="wrh-lst-header">
@@ -96,13 +94,7 @@ function WarehouseList() {
         </div>
 
         <div className="titleNames title-action">
-          <Link
-            to={{
-              pathname: '/warehouse/delete/washington',
-              state: { background: location },
-            }}>
-            <img src={deleteIcon} className="deleteIcon" alt="delete" />
-          </Link>
+          <img src={deleteIcon} className="deleteIcon" alt="delete" />
           <img src={editIcon} className="editIcon" alt="edit" />
         </div>
       </div>
