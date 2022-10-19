@@ -4,7 +4,7 @@ import WarehouseList from '../WarehouseList/WarehouseList';
 import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 import WarehouseDetails from '../WarehouseDetails/WarehouseDetails';
 
-export default function NavigationController() {
+export default function NavigationMap() {
   let location = useLocation();
   //Background location is from where the modal Component is called from
   let background = location.state && location.state.background;

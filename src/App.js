@@ -1,14 +1,14 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header/Header';
 import './App.scss';
-import RouteController from './components/RouteController/RouteController';
+import RouteMap from './components/RouteMap/RouteMap';
 
 function App() {
   return (
     <Router>
       <Header />
       <div className="container">
-        <RouteController />
+        <RouteMap />
       </div>
     </Router>
   );
