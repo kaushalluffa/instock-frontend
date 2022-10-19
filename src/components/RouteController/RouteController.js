@@ -11,46 +11,24 @@ export default function NavigationController() {
   return (
     <>
       <Switch location={background || location}>
-        <Route path="/warehouse/delete/:location">
-          <DeleteWarehouse />
-        </Route>
-        <Route path="/warehouse/edit/:location">
-          {/* add component for edit modal */}
-        </Route>
-        <Route path="/warehouse/:location">
-          <WarehouseDetails />
-        </Route>
-        <Route path="/warehouse/:location">
-          <WarehouseDetails />
-        </Route>
-        <Route exact path="/warehouse/new">
-          {/* add component for new warehouse modal */}
-        </Route>
-        <Route path="/inventory/delete/:item">
-          {/* route path for deleting item modal */}
-        </Route>
-        <Route path="/inventory/edit/:item">
-          {/* route path for editing item modal */}
-        </Route>
-        <Route path="/inventory/new">
-          {/* Route path for adding a new item */}
-        </Route>
-        <Route path="/inventory/:item">
-          {/* route path for inventory item details */}
-        </Route>
-        <Route exact path="/warehouse"></Route>
-        <Route exact path="/inventory">
-          {/* route path for inventory */}
-        </Route>
-        <Route exact path="/">
-          <WarehouseList />
-        </Route>
-        <Route exact path="/"></Route>
-        {/* Show the modal when a background page is set */}
-        {background && (
-          <Route path="/delete/:location" children={<DeleteWarehouse />} />
-        )}
+        <Route path="/warehouse/edit/:location" children="" />
+        <Route path="/warehouse/:location" children={<WarehouseDetails />} />
+        <Route exact path="/warehouse/new" children="" />
+        <Route path="/inventory/delete/:item" children="" />
+        <Route path="/inventory/edit/:item" children="" />
+        <Route path="/inventory/new" children="" />
+        <Route path="/inventory/:item" children="" />
+        <Route exact path="/warehouse" children={<WarehouseList />} />
+        <Route exact path="/inventory" children="" />
+        <Route exact path="/" children={<WarehouseList />} />
       </Switch>
+      {/* Show the requested modal when a background page is set */}
+      {background && (
+        <Route
+          path="/warehouse/delete/:location"
+          children={<DeleteWarehouse />}
+        />
+      )}
     </>
   );
 }
