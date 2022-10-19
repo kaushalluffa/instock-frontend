@@ -4,6 +4,7 @@ body {
   box-sizing: border-box;
   font-size: 10px;
   font-family: "Titillium Web", sans-serif;
+  
 }
 
 img {
@@ -31,4 +32,9 @@ h3 {
 h4{
   font-size: 1.2rem;
   line-height: 1.8rem;
+}
+button{
+  background-color: transparent;
+  border: none;
+  outline: none;
 }

@@ -4,12 +4,11 @@
   width: 90%;
   border-radius: 3px;
   margin: 0 auto;
+
   z-index: 3;
   background-color: $white;
   margin-top: -4.5rem;
-  @include tablet{
-
+  @include tablet {
     margin-top: -7.3rem;
   }
-
 }

@@ -95,8 +95,7 @@ const AddNewInventoryItem = () => {
               onChange={(e) => statusHandler(e)}
             />
             <label htmlFor="inStock">In Stock</label>
-          </div>
-          <div className="radio__container">
+          
             <input
               type="radio"
               name="status"
@@ -120,10 +119,10 @@ const AddNewInventoryItem = () => {
           />
         </div>
         <div className="addNewItem__availability--warehouse">
-          <label className="label">Category</label>
+          <label className="label">Warehouse</label>
           <select
-            value={itemCategory}
-            onChange={(e) => setItemCategory(e.target.value)}
+            value={itemWarehouse}
+            onChange={(e) => setItemWarehouse(e.target.value)}
           >
             <option
               className="default"
