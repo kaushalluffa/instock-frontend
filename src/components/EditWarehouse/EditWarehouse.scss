@@ -1,0 +1,53 @@
+@import "../../assets//partials/variables";
+
+.editWarehouse {
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem 4rem;
+    border-bottom: 1px solid $cloud;
+  }
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    &--heading {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+  &__info {
+    display: flex;
+    padding: 2.4rem 4rem;
+    &--warehouse {
+      flex: 0 1 50%;
+    }
+    &--contact {
+      border-left: 1px solid $cloud;
+      display: flex;
+      flex-direction: column;
+      // gap: 2.8rem;
+      padding-left: 4rem;
+    }
+  }
+}
+
+.heading-2 {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  display: flex;
+  align-items: center;
+  color: $instock-black;
+  margin-bottom:2rem;
+}
+
+.input-field {
+border: 1px solid $cloud;
+border-radius: 1.25rem;
+}

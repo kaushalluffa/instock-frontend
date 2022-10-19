@@ -5,7 +5,7 @@ import { ReactComponent as ChevronRight } from "../../assets/icons/chevron_right
 import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-24px.svg";
 import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg";
 import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg";
-import "./WarehousDetails.scss";
+import "./WarehouseDetails.scss";
 
 //ignore this import its just dummy data everything will be replaced with a fetch request from api
 import demoData from "../../assets/data/inventories.json";

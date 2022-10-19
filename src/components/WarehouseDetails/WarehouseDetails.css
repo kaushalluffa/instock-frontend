@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3.2rem 4rem;
+  padding: 1.6rem 4rem;
   border-bottom: 1px solid #bdc5d5;
 }
 .warehouseDetails__name {
@@ -64,6 +64,7 @@
   padding: 1.1rem 4rem;
   color: #5c667e;
   font-size: 1.2rem;
+  width: 100%;
 }
 .warehouseDetails__inventory--items {
   display: flex;
@@ -76,6 +77,7 @@
   align-items: center;
   font-size: 1.2rem;
   border-bottom: 1px solid #bdc5d5;
+  width: 100%;
 }
 
 .label {
@@ -114,6 +116,10 @@
   align-items: center;
 }
 
+.itemActions {
+  gap: 0.6rem;
+}
+
 .itemName {
   color: #2e66e5;
   transition: all 0.3s;
@@ -136,4 +142,16 @@
 .outofstock {
   background-color: rgba(201, 69, 21, 0.07);
   color: #c94515;
-}/*# sourceMappingURL=WarehousDetails.css.map */
+}
+
+table {
+  width: 100%;
+}
+
+td,
+th {
+  display: flex;
+  justify-content: center;
+  flex: 0 1 20%;
+  text-align: center;
+}/*# sourceMappingURL=WarehouseDetails.css.map */
