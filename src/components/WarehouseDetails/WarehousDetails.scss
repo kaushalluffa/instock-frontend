@@ -37,14 +37,26 @@
     h3 {
       display: none;
     }
-    @include desktop {
+    @include tablet {
+      border-radius: 0;
+      width: 5rem;
+      height: 3.8rem;
+      gap: 0.2rem;
+      border-radius: 2rem;
       h3 {
         display: block;
       }
-      width: 3.8rem;
+    }
+    @include desktop {
+      border-radius: 0;
+      width: 6rem;
       height: 3.8rem;
       gap: 0.2rem;
-      font-size: 1.4rem;
+      border-radius: 2rem;
+      h3 {
+        display: block;
+        font-size: 1.1rem;
+      }
     }
   }
   &__info {
@@ -63,7 +75,7 @@
     }
     &--address {
       margin-bottom: 1.6rem;
-      @include tablet{
+      @include tablet {
         flex: 0 1 50%;
       }
       @include desktop {
@@ -203,10 +215,12 @@
   @include tablet {
     display: flex;
     align-items: center;
+    gap: 1rem;
   }
   @include desktop {
     display: flex;
     align-items: center;
+    gap: 1rem;
   }
 }
 .itemName {
