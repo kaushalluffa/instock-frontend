@@ -29,13 +29,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Television <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Electronics</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-instock">IN STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">500</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -52,13 +59,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Gym Bag <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Gear</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-outstock">OUT OF STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">0</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -75,13 +89,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Hoodie <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Apparel</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-outstock">OUT OF STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">0</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -98,13 +119,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Keychain <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Accessories</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-instock">IN STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">2000</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -121,13 +149,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Shampoo <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Health</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-instock">IN STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">4350</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -144,13 +179,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Phone Charger <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Electronics</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-instock">IN STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">10000</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -167,13 +209,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Tent <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Gear</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-instock">IN STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">800</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
@@ -190,13 +239,20 @@ function InventoryList() {
       <div className="invList_items">
         <div className="invList_items-info">
           <section className="invList_items-left">
-            <p>INVENTORY ITEM</p>
-            <p>CATEGORY</p>
+            <p className="invList_items-title">INVENTORY ITEM</p>
+            <p className="invList_items-item">
+              Winter Jacket <img src={rightIcon} />
+            </p>
+            <p className="invList_items-title">CATEGORY</p>
+            <p className="invList_items-category">Apparel</p>
           </section>
           <section className="invList_items-right">
-            <p>STATUS</p>
-            <p>QTY</p>
-            <p>WAREHOUSE</p>
+            <p className="invList_items-title">STATUS</p>
+            <p className="invList_items-outstock">OUT OF STOCK</p>
+            <p className="invList_items-title">QTY</p>
+            <p className="invList_items-qty">0</p>
+            <p className="invList_items-title">WAREHOUSE</p>
+            <p className="invList_items-warehouse">Manhattan</p>
           </section>
         </div>
         <section className="invList_items-icons">
