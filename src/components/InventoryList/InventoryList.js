@@ -10,19 +10,21 @@ function InventoryList() {
     <div className="invList">
       <div className="invList_container">
         <p className="invList_header">Inventory</p>
-        <section className="invList_header-search">
-          <input
-            type={"text"}
-            className="invList_search"
-            placeholder="Search..."
-          />
-          <img
-            src={searchIcon}
-            className="invList_search-icon"
-            alt="search-icon"
-          />
-        </section>
-        <button className="invList_button">+ Add New Item</button>
+        <div className="invList_header-search">
+          <section className="invList_header-searchbar">
+            <input
+              type={"text"}
+              className="invList_search"
+              placeholder="Search..."
+            />
+            <img
+              src={searchIcon}
+              className="invList_search-icon"
+              alt="search-icon"
+            />
+          </section>
+          <button className="invList_button">+ Add New Item</button>
+        </div>
       </div>
 
       {/* Inventory Item 1 */}

@@ -11,6 +11,11 @@
 .invList_container {
   display: flex;
   flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
 }
 
 .invList_header {
@@ -19,6 +24,13 @@
 }
 
 .invList_header-search {
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.invList_header-searchbar {
   margin: 0 16px 0 0;
 }
 
@@ -28,15 +40,22 @@
   border-radius: 30px;
   margin: 16px;
   border: 1px solid $cloud;
+  @include tablet {
+    padding: 8px 32px 8px 16px;
+  }
 }
 
 .invList_button {
+  width: 94%;
   color: $white;
   background-color: $instock-indigo;
   border: 1px solid $instock-indigo;
-  padding: 8px 0 8px 0;
+  padding: 8px 0 8px 8px;
   border-radius: 30px;
   margin: 16px;
+  @include tablet {
+    padding: 8px 0 8px 0;
+  }
 }
 
 .invList_container,
@@ -48,10 +67,28 @@
 .invList_items-info {
   display: flex;
   padding-top: 16px;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
 }
 
 .invList_items-left {
   padding-right: 30%;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+}
+
+.invList_items-right {
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
 }
 
 .invList_items-title {
@@ -123,4 +160,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  @include tablet {
+    justify-content: flex-end;
+  }
 }
