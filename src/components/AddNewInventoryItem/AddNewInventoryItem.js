@@ -1,9 +1,11 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg";
 import { ReactComponent as DropDown } from "../../assets/icons/arrow_drop_down-24px.svg";
+import { v4 as uuidv4 } from "uuid";
 
 import "./AddNewInventoryItem.scss";
-const AddNewInventoryItem = () => {
+const AddNewInventoryItem = (props) => {
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [itemCategory, setItemCategory] = useState("");
@@ -26,7 +28,29 @@ const AddNewInventoryItem = () => {
         setItemStatus(false)
     }
   }
-  
+  const newInventoryItemData = {
+    id: uuidv4(),
+    warehouseID: props.warehouseID || "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    warehouseName: itemWarehouse|| "Manhattan",
+    itemName: itemName || "Television",
+    description: itemDescription || "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
+    category:itemCategory || "Electronics",
+    status: itemStatus ? "In Stock": "Out of Stock",
+    quantity: itemQuantity || 500
+  }
+  function postNewInventoryItem(){
+    axios({
+        method:'post',
+        url:'http://localhost:8080/inventory-item/create',
+        data: newInventoryItemData
+    })
+    setItemName('')
+    setItemDescription('')
+    setItemCategory('')
+    setItemStatus(true)
+    setItemQuantity(0)
+    setItemWarehouse('')
+  }
   return (
     <div className="addNewItem">
       <div className="addNewItem__header">
@@ -141,7 +165,7 @@ const AddNewInventoryItem = () => {
       </div>
       <div className="addNewItem__footer">
         <button className="addNewItem__footer--cancel">Cancel</button>
-        <button className="addNewItem__footer--add">+ Add Item</button>
+        <button className="addNewItem__footer--add" onClick={postNewInventoryItem}>+ Add Item</button>
       </div>
     </div>
   );
