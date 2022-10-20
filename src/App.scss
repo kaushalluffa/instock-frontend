@@ -1,10 +1,6 @@
 @import "../src/assets/partials/variables";
 .container {
-  border: 1px solid $light-grey;
-  width: 90%;
   border-radius: 3px;
-  margin: 0 auto;
-  margin-top: -7.3rem;
-  z-index: 3;
+
   background-color: $white;
 }
