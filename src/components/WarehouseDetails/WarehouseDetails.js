@@ -63,56 +63,83 @@ function WarehouseDetails() {
       hardcoded info inside above section will be replaced with variables when fetched from the api
        */}
       <div className="warehouseDetails__inventory">
-        <div className="warehouseDetails__inventory--tags">
-          <div className="tag">
-            INVENTORY ITEM <TagsArrows />
-          </div>
-          <div className="tag">
-            CATEGORY <TagsArrows />
-          </div>
-          <div className="tag">
-            STATUS <TagsArrows />
-          </div>
-          <div className="tag">
-            QTY <TagsArrows />
-          </div>
-          <div className="tag">
-            ACTIONS <TagsArrows />
-          </div>
-        </div>
-        <div className="warehouseDetails__inventory--items">
-          {warehouseData.map((singleWareHouse) => (
-            <div
-              className="warehouseDetails__inventory--item"
-              key={singleWareHouse.id}
-            >
-              <Link to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}>
-                <div className="itemName">
-                  {singleWareHouse.itemName} <ChevronRight />
+        <table>
+          <thead>
+            <tr className="warehouseDetails__inventory--tags">
+              <th>
+                <div className="tag">
+                  INVENTORY ITEM <TagsArrows />
                 </div>
-              </Link>
-              <div className="itemCategory">{singleWareHouse.category}</div>
-              <div
-                className={
-                  singleWareHouse.status === "In Stock"
-                    ? "instock itemStatus"
-                    : "outofstock itemStatus"
-                }
+              </th>
+              <th>
+                <div className="tag">
+                  CATEGORY <TagsArrows />
+                </div>
+              </th>
+              <th>
+                <div className="tag">
+                  STATUS <TagsArrows />
+                </div>
+              </th>
+              <th>
+                <div className="tag">
+                  QTY <TagsArrows />
+                </div>
+              </th>
+              <th>
+                <div className="tag">
+                  ACTIONS <TagsArrows />
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {warehouseData.map((singleWareHouse) => (
+              <tr
+                className="warehouseDetails__inventory--item"
+                key={singleWareHouse.id}
               >
-                {singleWareHouse.status}
-              </div>
-              <div className="itemQty">{singleWareHouse.quantity}</div>
-              <div className="itemActions">
-                <div className="deleteBtn">
-                  <DeleteBtn />
-                </div>
-                <div className="editBtn">
-                  <EditBtnBlue />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                <td>
+                  <Link
+                    to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}
+                  >
+                    <div className="itemName">
+                      {singleWareHouse.itemName} <ChevronRight />
+                    </div>
+                  </Link>
+                </td>
+                <td>
+                  <div className="itemCategory">{singleWareHouse.category}</div>
+                </td>
+                <td>
+                  <div
+                    className={
+                      singleWareHouse.status === "In Stock"
+                        ? "instock itemStatus"
+                        : "outofstock itemStatus"
+                    }
+                  >
+                    {singleWareHouse.status}
+                  </div>
+                </td>
+                <td>
+                  <div className="itemQty">{singleWareHouse.quantity}</div>
+                </td>
+                <td>
+                  <div className="itemActions">
+                    <div className="deleteBtn">
+                      <DeleteBtn />
+                    </div>
+                    <div className="editBtn">
+                      <EditBtnBlue />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        
         <div className="warehouseDetails__inventory--items-mobile">
           {warehouseData.map((singleWareHouse) => (
             <div
