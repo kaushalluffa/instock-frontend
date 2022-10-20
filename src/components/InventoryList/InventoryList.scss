@@ -8,10 +8,37 @@
   margin: 16px;
 }
 
+.invList_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.invList_header {
+  font-weight: $bold-font-weight;
+  font-size: 28px;
+}
+
+.invList_button {
+  color: $white;
+  background-color: $instock-indigo;
+  border: 1px solid $instock-indigo;
+  padding: 8px 0 8px 0;
+  border-radius: 30px;
+  margin: 16px;
+}
+
 .invList_container,
 .invList_items {
   border-bottom: 1px solid $slate;
   padding-bottom: 16px;
+}
+
+.invList_items-info {
+  display: flex;
+}
+
+.invList_items-left {
+  padding-right: 30%;
 }
 
 .invList_search-icon {
@@ -19,9 +46,19 @@
   height: 17.5px;
 }
 
-.invList_items-icons {
+.invList_items-icons img {
   width: 18px;
   height: 18px;
+  display: flex;
+  background-color: $white;
+}
+
+.invList_items-button {
+  background-color: $white;
+  border: $white;
+}
+
+.invList_items-icons {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
