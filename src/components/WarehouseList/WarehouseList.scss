@@ -1,9 +1,14 @@
 .wrh-lst-cont{
-    width: 90%;
-    padding: 50px;
-    background-color: white;
-    margin: auto;
-    margin-top: -80px;
+    position: absolute;
+    left: 10.16%;
+    right: 10.16%;
+    top: 9.95%;
+    padding-bottom: 1.6rem;
+    background: #ffffff;
+    /* Card Shadow */
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    
 }
 
 .wrh-lst-header-h1{

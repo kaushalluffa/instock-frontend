@@ -4,7 +4,7 @@
     position: absolute;
     left: 10.16%;
     right: 10.16%;
-    top: 9.95%;
+    top: 8%;
     padding-bottom: 1.6rem;
     background: #ffffff;
     /* Card Shadow */
@@ -196,6 +196,7 @@
   }
 }
 .icon {
+  cursor: pointer;
   @include desktop {
     width: 0.6rem;
     height: 1.2rem;

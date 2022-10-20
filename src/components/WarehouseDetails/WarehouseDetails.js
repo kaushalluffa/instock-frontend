@@ -7,36 +7,46 @@ import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg";
 import "./WarehousDetails.scss";
 
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 
 function WarehouseDetails() {
-  const { location } = useParams();
-  const [warehouseData, setWarehouseData] = useState([]);
-  const warehouseID = "2922c286-16cd-4d43-ab98-c79f698aeab0";
+  const { warehouseId } = useParams();
+  const [inventoryData, setInventoryData] = useState([]);
+  const [warehouseData, setWarehouseData] = useState({});
+const history = useHistory()
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/warehousedata/${warehouseId}`)
+      .then((res) => {
+        setWarehouseData(res.data);
+      });
+  }, [warehouseId]);
+
   useEffect(() => {
     axios({
       method: "get",
-      url: `http://localhost:8080/inventory/${warehouseID}`,
+      url: `http://localhost:8080/inventory/${warehouseId}`,
     }).then((res) => {
-      setWarehouseData(res.data);
+      setInventoryData(res.data);
     });
-  }, []);
+  }, [warehouseId]);
   return (
     <div className="warehouseDetails">
       <div className="warehouseDetails__header">
         <div className="warehouseDetails__name">
-          <span className="warehouseDetails__name--icon">
+          <span className="warehouseDetails__name--icon" style={{cursor:'pointer'}} onClick={history.goBack}>
             <ArrowBack />
           </span>
           <h1 className="warehouseDetails__name--heading">
-            {warehouseData[0]?.warehouseName}
+            {warehouseData?.name}
           </h1>
         </div>
-        <div className="warehouseDetails__button">
+        <Link to={`/warehouse/edit/${warehouseData.name}`} className="warehouseDetails__button">
           <EditBtn />
           <h3>Edit</h3>
-        </div>
+        </Link>
       </div>
       {/*
       hardcoded info inside following section will be replaced with variables when fetched from the api
@@ -44,18 +54,23 @@ function WarehouseDetails() {
       <div className="warehouseDetails__info">
         <div className="warehouseDetails__info--address">
           <h3 className="label">WAREHOUSE ADDRESS:</h3>
-          <p className="address">33 Pearl Street SW, Washington, USA</p>
+          <p className="address">
+            {warehouseData?.address}, {warehouseData?.city},{" "}
+            {warehouseData?.country}
+          </p>
         </div>
         <div className="warehouseDetails__contact">
           <div className="warehouseDetails__contact--name">
             <h3 className="label">CONTACT NAME:</h3>
-            <p className="contactName">Graeme Lyon</p>
-            <p className="contactPosition">Warehouse Manager</p>
+            <p className="contactName">{warehouseData?.contact?.name}</p>
+            <p className="contactPosition">
+              {warehouseData?.contact?.position}
+            </p>
           </div>
           <div className="warehouseDetails__contact--info">
             <h3 className="label">CONTACT INFORMATION:</h3>
-            <p className="phoneNumber">{`+1 (647)504-0911`}</p>
-            <p className="email">glyon@instock.com</p>
+            <p className="phoneNumber">{warehouseData?.contact?.phone}</p>
+            <p className="email">{warehouseData?.contact?.email}</p>
           </div>
         </div>
       </div>
@@ -94,36 +109,38 @@ function WarehouseDetails() {
             </tr>
           </thead>
           <tbody>
-            {warehouseData.map((singleWareHouse) => (
+            {inventoryData?.map((singleWareHouse) => (
               <tr
                 className="warehouseDetails__inventory--item"
-                key={singleWareHouse.id}
+                key={singleWareHouse?.id}
               >
                 <td>
                   <Link
-                    to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}
+                    to={`/inventory/${singleWareHouse?.itemName.toLowerCase()}`}
                   >
-                    <div className="itemName">
-                      {singleWareHouse.itemName} <ChevronRight />
-                    </div>
+                    <h3 className="itemName">
+                      {singleWareHouse?.itemName} <ChevronRight />
+                    </h3>
                   </Link>
                 </td>
                 <td>
-                  <div className="itemCategory">{singleWareHouse.category}</div>
+                  <div className="itemCategory">
+                    {singleWareHouse?.category}
+                  </div>
                 </td>
                 <td>
                   <div
                     className={
-                      singleWareHouse.status === "In Stock"
+                      singleWareHouse?.status === "In Stock"
                         ? "instock itemStatus"
                         : "outofstock itemStatus"
                     }
                   >
-                    {singleWareHouse.status}
+                    {singleWareHouse?.status}
                   </div>
                 </td>
                 <td>
-                  <div className="itemQty">{singleWareHouse.quantity}</div>
+                  <div className="itemQty">{singleWareHouse?.quantity}</div>
                 </td>
                 <td>
                   <div className="itemActions">
@@ -139,25 +156,25 @@ function WarehouseDetails() {
             ))}
           </tbody>
         </table>
-        
+
         <div className="warehouseDetails__inventory--items-mobile">
-          {warehouseData.map((singleWareHouse) => (
+          {inventoryData?.map((singleWareHouse) => (
             <div
               className="warehouseDetails__inventory--item-mobile"
-              key={singleWareHouse.id}
+              key={singleWareHouse?.id}
             >
               <div className="itemLeft-container">
                 <div className="tag-label">INVENTORY ITEM </div>
                 <Link
-                  to={`/inventory/${singleWareHouse.itemName.toLowerCase()}`}
+                  to={`/inventory/${singleWareHouse?.itemName.toLowerCase()}`}
                 >
                   <span className="link-container">
-                    {singleWareHouse.itemName} <ChevronRight />
+                    {singleWareHouse?.itemName} <ChevronRight />
                   </span>
                 </Link>
                 <div className="tag-label">CATEGORY </div>
                 <div className="itemCategory-mobile">
-                  {singleWareHouse.category}
+                  {singleWareHouse?.category}
                 </div>
                 <div className="cta-mobile">
                   <DeleteBtn />
@@ -168,16 +185,18 @@ function WarehouseDetails() {
 
                 <div
                   className={
-                    singleWareHouse.status === "In Stock"
+                    singleWareHouse?.status === "In Stock"
                       ? "stockStatus-mobile instock"
                       : "outofstock stockStatus-mobile"
                   }
                 >
-                  {singleWareHouse.status}
+                  {singleWareHouse?.status}
                 </div>
 
                 <div className="tag-label">QTY </div>
-                <div className="itemQty-mobile">{singleWareHouse.quantity}</div>
+                <div className="itemQty-mobile">
+                  {singleWareHouse?.quantity}
+                </div>
                 <div className="cta-mobile" style={{ alignSelf: "flex-end" }}>
                   <EditBtnBlue />
                 </div>
