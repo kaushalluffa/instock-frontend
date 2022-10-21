@@ -28,7 +28,7 @@ export default function InventoryItemDetails() {
     history.goBack();
   }
 
-  //changes HTML depending if item is in stock or not
+  //function that changes HTML depending if item is in stock or not
   function returnStock() {
     if (itemToDisplay.stock === 'In Stock') {
       return (
