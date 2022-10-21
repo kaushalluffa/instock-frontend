@@ -3,7 +3,8 @@ import { Route, useLocation, Switch } from 'react-router-dom';
 import WarehouseList from '../WarehouseList/WarehouseList';
 import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 import WarehouseDetails from '../WarehouseDetails/WarehouseDetails';
-import AddNewInventoryItem from '../AddNewInventoryItem/AddNewInventoryItem'
+import AddNewInventoryItem from '../AddNewInventoryItem/AddNewInventoryItem';
+import InventoryItemDetails from '../InventoryItemDetail/InventoryItemDetail';
 
 export default function NavigationMap() {
   let location = useLocation();
@@ -16,9 +17,12 @@ export default function NavigationMap() {
         <Route path="/warehouse/:warehouseId" children={<WarehouseDetails />} />
         <Route exact path="/warehouse/new" children="" />
         <Route path="/inventory/delete/:item" children="" />
-        <Route path="/inventory/edit/:item" children="" />
-        <Route path="/inventory/new" children={<AddNewInventoryItem/>} />
-        <Route path="/inventory/:item" children="" />
+        <Route exact path="/inventory/edit/:item" children="" />
+        <Route path="/inventory/new" children={<AddNewInventoryItem />} />
+        <Route
+          path="/inventory/:warehouseId/:item"
+          children={<InventoryItemDetails />}
+        />
         <Route exact path="/warehouse" children={<WarehouseList />} />
         <Route exact path="/inventory" children="" />
         <Route exact path="/" children={<WarehouseList />} />

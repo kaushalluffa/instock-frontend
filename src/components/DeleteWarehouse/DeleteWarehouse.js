@@ -25,7 +25,7 @@ function upperCaseFirstLetter(string) {
     );
   }
 }
-upperCaseFirstLetter('nome');
+
 export default function DeleteWarehouse() {
   let history = useHistory();
   let location = useParams();
@@ -45,7 +45,7 @@ export default function DeleteWarehouse() {
     const url = 'http://localhost:8080/warehouses/delete/' + location.location;
     //DELETE request
     fetch(url, { method: 'DELETE' })
-      .then((response) => {
+      .then(() => {
         alert('Warehouse was delete from the system!');
       })
       .catch((e) => {
