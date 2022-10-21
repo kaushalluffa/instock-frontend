@@ -27,6 +27,7 @@ function InventoryList() {
         </div>
       </div>
 
+      {/* wrap in container for mobile ---> display non for other breakpoint*/}
       {/* Inventory Item 1 */}
       <div className="invList_items">
         <div className="invList_items-info">
@@ -266,6 +267,8 @@ function InventoryList() {
           </button>
         </section>
       </div>
+
+      {/* create another contaiener for tablet and desktop ---> display none for mobile */}
     </div>
   );
 }
