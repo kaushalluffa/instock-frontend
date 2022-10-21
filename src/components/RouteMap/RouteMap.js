@@ -3,6 +3,7 @@ import { Route, useLocation, Switch } from "react-router-dom";
 import WarehouseList from "../WarehouseList/WarehouseList";
 import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
 import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
+import InventoryList from "../InventoryList/InventoryList";
 
 import AddNewInventoryItem from "../AddNewInventoryItem/AddNewInventoryItem";
 
@@ -21,7 +22,7 @@ export default function NavigationMap() {
         <Route path="/inventory/new" children={<AddNewInventoryItem />} />
         <Route path="/inventory/:item" children="" />
         <Route exact path="/warehouse" children={<WarehouseList />} />
-        <Route exact path="/inventory" children="" />
+        <Route exact path="/inventory" children={<InventoryList />} />
         <Route exact path="/" children={<WarehouseList />} />
       </Switch>
       {/* Show the requested modal when a background page is set */}
