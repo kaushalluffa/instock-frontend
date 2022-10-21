@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./WarehouseList.scss";
-import searchIcon from "../../assets/icons/search-24px.svg";
-import addIcon from "../../assets/icons/add-svgrepo-com.svg";
-import arrowUpDown from "../../assets/icons/noun-arrows-up-down-1979644.svg";
-import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
-import editIcon from "../../assets/icons/edit-24px.svg";
-import rightIcon from "../../assets/icons/chevron_right-24px.svg";
-import axios from "axios";
+import React, { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import "./WarehouseList.scss"
+import searchIcon from "../../assets/icons/search-24px.svg"
+import addIcon from "../../assets/icons/add-svgrepo-com.svg"
+import arrowUpDown from "../../assets/icons/noun-arrows-up-down-1979644.svg"
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
+import editIcon from "../../assets/icons/edit-24px.svg"
+import rightIcon from "../../assets/icons/chevron_right-24px.svg"
+import axios from "axios"
 
 function WarehouseList() {
-  let location = useLocation();
-  const [allWarehouses, setAllWarehouses] = useState([]);
+  let location = useLocation()
+  const [allWarehouses, setAllWarehouses] = useState([])
   useEffect(() => {
     axios.get("http://localhost:8080/warehouses").then((res) => {
-      setAllWarehouses(res.data);
-    });
-  }, []);
+      setAllWarehouses(res.data)
+    })
+  }, [])
   return (
     <div className="wrh-lst-cont">
       <div className="wrh-lst-header">
@@ -154,7 +154,7 @@ function WarehouseList() {
         </div>
       </div> */}
     </div>
-  );
+  )
 }
 
-export default WarehouseList;
+export default WarehouseList

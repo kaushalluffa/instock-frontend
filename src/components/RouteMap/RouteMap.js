@@ -1,14 +1,14 @@
-import React from 'react';
-import { Route, useLocation, Switch } from 'react-router-dom';
-import WarehouseList from '../WarehouseList/WarehouseList';
-import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
-import WarehouseDetails from '../WarehouseDetails/WarehouseDetails';
-import AddNewInventoryItem from '../AddNewInventoryItem/AddNewInventoryItem'
-
+import React from "react"
+import { Route, useLocation, Switch } from "react-router-dom"
+import WarehouseList from "../WarehouseList/WarehouseList"
+import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse"
+import WarehouseDetails from "../WarehouseDetails/WarehouseDetails"
+import AddNewInventoryItem from "../AddNewInventoryItem/AddNewInventoryItem"
+import EditInventoryItem from "../EditInventoryItem/EditInventoryItem"
 export default function NavigationMap() {
-  let location = useLocation();
+  let location = useLocation()
   //Background location is from where the modal Component is called from
-  let background = location.state && location.state.background;
+  let background = location.state && location.state.background
   return (
     <>
       <Switch location={background || location}>
@@ -16,8 +16,8 @@ export default function NavigationMap() {
         <Route path="/warehouse/:warehouseId" children={<WarehouseDetails />} />
         <Route exact path="/warehouse/new" children="" />
         <Route path="/inventory/delete/:item" children="" />
-        <Route path="/inventory/edit/:item" children="" />
-        <Route path="/inventory/new" children={<AddNewInventoryItem/>} />
+        <Route path="/inventory/edit/" children={<EditInventoryItem />} />
+        <Route path="/inventory/new" children={<AddNewInventoryItem />} />
         <Route path="/inventory/:item" children="" />
         <Route exact path="/warehouse" children={<WarehouseList />} />
         <Route exact path="/inventory" children="" />
@@ -31,5 +31,5 @@ export default function NavigationMap() {
         />
       )}
     </>
-  );
+  )
 }
