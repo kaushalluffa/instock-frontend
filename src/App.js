@@ -4,6 +4,7 @@ import "./App.scss";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
@@ -17,11 +18,11 @@ function App() {
           <Route path="/warehouse/edit/:location">
             <EditWarehouse />
           </Route>
+          <Route exact path="/warehouse/new">
+            <AddWarehouse />
+          </Route>
           <Route path="/warehouse/:location">
             <WarehouseDetails />
-          </Route>
-          <Route exact path="/warehouse/new">
-            {/* add component for new warehouse modal */}
           </Route>
           <Route path="/inventory/delete/:item">
             {/* route path for deleting item modal */}
@@ -35,9 +36,9 @@ function App() {
           <Route path="/inventory/:item">
             {/* route path for inventory item details */}
           </Route>
-          <Route exact path="/warehouse">
+          {/* <Route exact path="/warehouse">
             {<WarehouseList />}
-          </Route>
+          </Route> */}
           <Route exact path="/inventory">
             {/* route path for inventory */}
           </Route>
