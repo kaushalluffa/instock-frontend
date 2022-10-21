@@ -6,8 +6,8 @@ import backArrow from '../../assets/icons/arrow_back-24px.svg';
 
 export default function InventoryItemDetails() {
   let history = useHistory();
-  // let location = useParams();
-
+  let location = useParams();
+  console.log(location);
   //function that handles click on return button
   function back(e) {
     //prevent multiple clicks to bring the use further back into the route
@@ -30,6 +30,7 @@ export default function InventoryItemDetails() {
         </div>
         <div className="item-detail__edit-wrapper">
           <img
+            // will add onClick event for opening the edit details
             className="item-detail__edit-icon"
             src={editIcon}
             alt="edit icon"
@@ -38,23 +39,29 @@ export default function InventoryItemDetails() {
       </div>
       <div className="item-detail__card">
         <div className="item-detail__description-container">
-          <h3 className="item-detail__label">ITEM DESCRIPTION:</h3>
+          <h4 className="item-detail__label">ITEM DESCRIPTION:</h4>
           <p className="item-detail__text">
             This 50", 4K LED TV provides a crystal-clear picture and vivid
             colors.
           </p>
-          <h3 className="item-detail__label">CATEGORY:</h3>
+          <h4 className="item-detail__label item-detail__label--gap">
+            CATEGORY:
+          </h4>
           <p className="item-detail__text">Electronics</p>
         </div>
         <div className="item-detail__status-container">
-          <div className="item-detail__status-wrapper">
-            <h3 className="item-detail__label">STATUS:</h3>
-            <p className="item-detail__text">IN STOCK</p>
-            <h3 className="item-detail__label">WAREHOUSE:</h3>
+          <div className="item-detail__wrapper">
+            <h4 className="item-detail__label">STATUS:</h4>
+            <p className="item-detail__text item-detail__text--in-stock">
+              IN STOCK
+            </p>
+            <h4 className="item-detail__label  item-detail__label--gap">
+              WAREHOUSE:
+            </h4>
             <p className="item-detail__text">Manhattan</p>
           </div>
-          <div className="item-detail__status-wrapper">
-            <h3 className="item-detail__label">QUANTITY:</h3>
+          <div className="item-detail__wrapper">
+            <h4 className="item-detail__label">QUANTITY:</h4>
             <p className="item-detail__text">500</p>
           </div>
         </div>
