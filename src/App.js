@@ -1,7 +1,7 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import Header from './components/Header/Header';
-import './App.scss';
-import RouteMap from './components/RouteMap/RouteMap';
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from "./components/Header/Header";
+import "./App.scss";
+import RouteMap from "./components/RouteMap/RouteMap";
 
 function App() {
   return (
