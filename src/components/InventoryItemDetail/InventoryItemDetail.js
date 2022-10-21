@@ -35,6 +35,7 @@ export default function InventoryItemDetails() {
             src={editIcon}
             alt="edit icon"
           />
+          <p className="item-detail__edit-text">Edit</p>
         </div>
       </div>
       <div className="item-detail__card">

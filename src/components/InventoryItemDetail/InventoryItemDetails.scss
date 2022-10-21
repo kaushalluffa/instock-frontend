@@ -1,8 +1,12 @@
 @import '../../assets//partials/variables';
 
 .item-detail {
-  max-width: 73.1rem;
-  margin: 0 1.6rem;
+  position: absolute;
+  left: 3.27%;
+  right: 3.27%;
+  top: 20.39%;
+  bottom: 24.89%;
+  height: fit-content;
   background-color: $white;
   box-shadow: 0 0.2rem 0.5rem rgba(19, 24, 44, 0.1);
   border-radius: 0.3rem;
@@ -12,6 +16,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include tablet {
+      padding: 3.2rem 3.2rem 2.4rem;
+    }
   }
   &__title-wrapper {
     display: flex;
@@ -29,6 +36,10 @@
     font-weight: 600;
     line-height: 3.6rem;
     color: $instock-black;
+    @include tablet {
+      font-size: 3.2rem;
+      line-height: 4rem;
+    }
   }
   &__edit-wrapper {
     padding: 1.05rem;
@@ -36,25 +47,54 @@
     height: 3.6rem;
     border-radius: 2rem;
     background-color: $instock-indigo;
+    @include tablet {
+      padding: 1.15rem 1.85rem;
+      width: 8.1rem;
+      height: 3.8rem;
+      display: flex;
+      align-items: center;
+    }
   }
   &__edit-icon {
     width: 1.5rem;
     height: 1.5rem;
   }
+  &__edit-text {
+    padding-left: 0.7rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    display: none;
+    color: $white;
+    @include tablet {
+      display: inline-block;
+    }
+  }
   &__card {
     padding: 1.6rem 2.4rem;
+    @include tablet {
+      padding: 2.4rem 3.2rem;
+      display: flex;
+    }
   }
   &__description-container {
     padding-bottom: 1.6rem;
+    @include tablet {
+      width: 50%;
+      padding-right: 2.4rem;
+      border-right: 0.1rem solid $cloud;
+    }
   }
   &__label {
-    width: 9.5rem;
-    height: 1.6rem;
     margin-bottom: 0.4rem;
     font-weight: 600;
     font-size: 1.1rem;
-    line-height: 2rem;
+    line-height: 1.6rem;
     color: $slate;
+    @include tablet {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+    }
     &--gap {
       margin-top: 1.6rem;
     }
@@ -64,6 +104,10 @@
     font-size: 1.3rem;
     line-height: 2rem;
     color: $instock-black;
+    @include tablet {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
     &--in-stock {
       width: fit-content;
       padding: 0.4rem 0.8rem;
@@ -84,5 +128,8 @@
   &__status-container {
     gap: 9.5rem;
     display: flex;
+    @include tablet {
+      padding-left: 4rem;
+    }
   }
 }
