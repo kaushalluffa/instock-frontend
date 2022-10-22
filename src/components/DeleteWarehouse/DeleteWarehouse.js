@@ -25,7 +25,7 @@ function upperCaseFirstLetter(string) {
     );
   }
 }
-upperCaseFirstLetter('nome');
+
 export default function DeleteWarehouse() {
   let history = useHistory();
   let location = useParams();
@@ -45,7 +45,7 @@ export default function DeleteWarehouse() {
     const url = 'http://localhost:8080/warehouses/delete/' + location.location;
     //DELETE request
     fetch(url, { method: 'DELETE' })
-      .then((response) => {
+      .then(() => {
         alert('Warehouse was delete from the system!');
       })
       .catch((e) => {
@@ -60,21 +60,23 @@ export default function DeleteWarehouse() {
   return (
     <div className="modal-wrapper">
       <div className="delete-warehouse">
-        <div className="delete-warehouse__icon-wrapper">
-          <img
-            onClick={back}
-            className="delete-warehouse__icon"
-            src={closeButton}
-            alt="X"
-          />
+        <div className="delete-warehouse__txt-container">
+          <div className="delete-warehouse__icon-wrapper">
+            <img
+              onClick={back}
+              className="delete-warehouse__icon"
+              src={closeButton}
+              alt="X"
+            />
+          </div>
+          <h1 className="delete-warehouse__title">
+            Delete {warehouse} warehouse?
+          </h1>
+          <p className="delete-warehouse__txt">
+            Please confirm that you’d like to delete the {warehouse} from the
+            list of warehouses. You won’t be able to undo this action.
+          </p>
         </div>
-        <h1 className="delete-warehouse__title">
-          Delete {warehouse} warehouse?
-        </h1>
-        <p className="delete-warehouse__txt">
-          Please confirm that you’d like to delete the {warehouse} from the list
-          of warehouses. You won’t be able to undo this action.
-        </p>
         <div className="delete-warehouse__btn-wrapper">
           <button
             onClick={back}
