@@ -30,13 +30,13 @@ const AddNewInventoryItem = (props) => {
   }
   const newInventoryItemData = {
     id: uuidv4(),
-    warehouseID: props.warehouseID || "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    warehouseName: itemWarehouse|| "Manhattan",
-    itemName: itemName || "Television",
-    description: itemDescription || "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
-    category:itemCategory || "Electronics",
+    warehouseID: props?.warehouseID,
+    warehouseName: itemWarehouse,
+    itemName: itemName ,
+    description: itemDescription ,
+    category:itemCategory ,
     status: itemStatus ? "In Stock": "Out of Stock",
-    quantity: itemQuantity || 500
+    quantity: itemQuantity
   }
   function postNewInventoryItem(){
     axios({
