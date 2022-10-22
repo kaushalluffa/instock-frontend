@@ -25,10 +25,10 @@ function EditWarehouse(props) {
       name: contactName,
       position: contactPosition,
       phone: contactPhoneNumber,
-      email: contactEmail
-    }
-  }
-  
+      email: contactEmail,
+    },
+  };
+
   // put request to edit warehouse object
   function editWarehouseDetails() {
     axios({
@@ -42,8 +42,8 @@ function EditWarehouse(props) {
     setWarehouseCountry("");
     setContactName("");
     setContactPosition("");
-    setContactPhoneNumber("")
-    setContactEmail("")
+    setContactPhoneNumber("");
+    setContactEmail("");
   }
 
   return (
@@ -126,7 +126,9 @@ function EditWarehouse(props) {
             <h3 className="heading-3--cancel">Cancel</h3>
           </button>
           <button className="editWarehouse__button editWarehouse__button--save">
-            <h3 className="heading-3--save" onClick={editWarehouseDetails}>Save</h3>
+            <h3 className="heading-3--save" onClick={editWarehouseDetails}>
+              Save
+            </h3>
           </button>
         </div>
       </form>
