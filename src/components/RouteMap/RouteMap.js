@@ -7,7 +7,7 @@ import AddNewInventoryItem from "../AddNewInventoryItem/AddNewInventoryItem"
 import InventoryItemDetails from "../InventoryItemDetail/InventoryItemDetail"
 import EditWarehouse from "../EditWarehouse/EditWarehouse"
 import AddWarehouse from "../AddWarehouse/AddWarehouse"
-import EditInventoryItem from "../EditInventoryItem/EditInventoryItem"
+import DeleteInventory from "../DeleteInventory/DeleteInventory"
 
 export default function NavigationMap() {
   let location = useLocation()
@@ -40,6 +40,9 @@ export default function NavigationMap() {
           path="/warehouse/delete/:location"
           children={<DeleteWarehouse />}
         />
+      )}
+      {background && (
+        <Route path="/inventory/delete/:item" children={<DeleteInventory />} />
       )}
     </>
   )
