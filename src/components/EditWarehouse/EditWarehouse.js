@@ -16,7 +16,7 @@ function EditWarehouse(props) {
 
   // editted warehouse details input from user
   const newWarehouseDetails = {
-    id: props.id,
+    id: props?.id,
     warehouseName: warehouseName,
     address: warehouseStreetAddress,
     city: warehouseCity,
