@@ -65,7 +65,7 @@ export default function DeleteInventory() {
           />
         </div>
         <h1 className="delete-inventory__title">
-          Delete {warehouse} warehouse?
+          Delete {inventory} inventory?
         </h1>
         <p className="delete-inventory__txt">
           Please confirm that you’d like to delete the {inventory} from the

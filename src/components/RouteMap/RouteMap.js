@@ -7,6 +7,7 @@ import AddNewInventoryItem from "../AddNewInventoryItem/AddNewInventoryItem";
 import InventoryItemDetails from "../InventoryItemDetail/InventoryItemDetail";
 import EditWarehouse from "../EditWarehouse/EditWarehouse";
 import AddWarehouse from "../AddWarehouse/AddWarehouse";
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
 
 export default function NavigationMap() {
   let location = useLocation();
