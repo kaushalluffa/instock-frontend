@@ -13,12 +13,6 @@
   }
 }
 
-.box {
-  @include tablet {
-    display: flex;
-  }
-}
-
 .warehouses-list {
   position: relative;
   bottom: 4rem;

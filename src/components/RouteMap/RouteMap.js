@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import { Route, useLocation, Switch } from 'react-router-dom';
 import WarehouseList from '../WarehouseList/WarehouseList';
@@ -8,18 +7,7 @@ import AddNewInventoryItem from '../AddNewInventoryItem/AddNewInventoryItem';
 import InventoryItemDetails from '../InventoryItemDetail/InventoryItemDetail';
 import EditWarehouse from '../EditWarehouse/EditWarehouse';
 import AddWarehouse from '../AddWarehouse/AddWarehouse';
-=======
-import React from "react";
-import { Route, useLocation, Switch } from "react-router-dom";
-import WarehouseList from "../WarehouseList/WarehouseList";
-import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
-import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
-import AddNewInventoryItem from "../AddNewInventoryItem/AddNewInventoryItem";
-import InventoryItemDetails from "../InventoryItemDetail/InventoryItemDetail";
-import EditWarehouse from "../EditWarehouse/EditWarehouse";
-import AddWarehouse from "../AddWarehouse/AddWarehouse";
-import DeleteInventory from "../DeleteInventory/DeleteInventory";
->>>>>>> develop
+import DeleteInventory from '../DeleteInventory/DeleteInventory';
 
 export default function NavigationMap() {
   let location = useLocation();
