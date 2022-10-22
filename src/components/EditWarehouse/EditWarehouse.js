@@ -123,7 +123,7 @@ function EditWarehouse(props) {
           </div>
         </div>
         <div className="editWarehouse__buttons">
-        <Link to="/warehouse/:warehouseId"><button className="editWarehouse__button editWarehouse__button--cancel">
+        <Link to={`/warehouse/${props?.id}`}><button className="editWarehouse__button editWarehouse__button--cancel">
             <h3 className="heading-3--cancel">Cancel</h3>
           </button></Link>
           <button className="editWarehouse__button editWarehouse__button--save">
