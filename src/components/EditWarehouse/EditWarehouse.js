@@ -16,16 +16,16 @@ function EditWarehouse(props) {
 
   // editted warehouse details input from user
   const newWarehouseDetails = {
-    id: props.id || "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    warehouseName: warehouseName || "Manhattan",
-    address: warehouseStreetAddress || "503 Broadway",
-    city: warehouseCity || "New York",
-    country: warehouseCountry || "USA",
+    id: props?.id,
+    warehouseName: warehouseName,
+    address: warehouseStreetAddress,
+    city: warehouseCity,
+    country: warehouseCountry,
     contact: {
-      name: contactName || "Parmin Aujla",
-      position: contactPosition || "Warehouse Manager",
-      phone: contactPhoneNumber || "+1 (646) 123-1234",
-      email: contactEmail || "paujla@instock.com"
+      name: contactName,
+      position: contactPosition,
+      phone: contactPhoneNumber,
+      email: contactEmail
     }
   }
   

@@ -1,10 +1,10 @@
+html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 10px;
-  font-family: "Titillium Web", sans-serif;
-  
+  font-family: 'Titillium Web', sans-serif;
 }
 
 img {
@@ -44,4 +44,9 @@ h4{
   font-weight: 600;
   font-size: 0.75rem;
   line-height: 1.125rem;
+}
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
