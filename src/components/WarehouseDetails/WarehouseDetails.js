@@ -5,7 +5,7 @@ import { ReactComponent as DeleteBtn } from "../../assets/icons/delete_outline-2
 import { ReactComponent as EditBtn } from "../../assets/icons/edit-24px.svg"
 import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue.svg"
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg"
-import "./WarehousDetails.scss"
+import "./WarehouseDetails.scss"
 
 import { Link, useHistory, useParams } from "react-router-dom"
 import axios from "axios"
