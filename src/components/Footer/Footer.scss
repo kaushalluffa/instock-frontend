@@ -6,4 +6,10 @@
   margin: 2.5rem 0;
   font-size: 1rem;
   color: $slate;
+  @include tablet {
+    position: absolute;
+    left: 43.1635%;
+    z-index: -1;
+    bottom: 0;
+  }
 }
