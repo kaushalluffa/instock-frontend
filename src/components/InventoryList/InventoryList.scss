@@ -1,5 +1,16 @@
 @import "../../assets/partials/variables";
 
+@media (min-width: 767px) {
+  .invList__mobile {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .invList__mobile--hidden {
+    display: none;
+  }
+}
+
 * {
   font-family: $titillium;
 }
@@ -20,7 +31,7 @@
 
 .invList__header {
   font-weight: $bold-font-weight;
-  font-size: 28px;
+  font-size: 3rem;
 }
 
 .invList__header--search {
@@ -62,6 +73,18 @@
 .invList__items {
   border-bottom: 1px solid $slate;
   padding-bottom: 16px;
+  @include tablet {
+    border-bottom: none;
+  }
+}
+
+.invList__items--titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  background-color: $light-grey;
+  height: 32px;
 }
 
 .invList__items--info {
@@ -69,26 +92,14 @@
   padding-top: 16px;
   @include tablet {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: baseline;
+    border-bottom: 1px solid $cloud;
   }
 }
 
 .invList__items--left {
   padding-right: 30%;
-  @include tablet {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-  }
-}
-
-.invList__items--right {
-  @include tablet {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-  }
 }
 
 .invList__items--title {
@@ -97,9 +108,18 @@
   color: $slate;
 }
 
+.invList__items--titles img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .invList__items--item img {
   width: 1.2rem;
   height: 1.2rem;
+}
+
+.invList__items--sort {
+  display: flex;
 }
 
 .invList__items--item {
