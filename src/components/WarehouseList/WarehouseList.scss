@@ -101,6 +101,9 @@
     font-size: 0.813rem;
     line-height: 1.25rem;
     color: $instock-black;
+    &--blank {
+      color: $white;
+    }
   }
   &__delete-icon {
     width: 1.5rem;
