@@ -1,124 +1,178 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./WarehouseList.scss";
-import searchIcon from "../../assets/icons/search-24px.svg";
-import addIcon from "../../assets/icons/add-svgrepo-com.svg";
-import arrowUpDown from "../../assets/icons/noun-arrows-up-down-1979644.svg";
-import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
-import editIcon from "../../assets/icons/edit-24px.svg";
-import rightIcon from "../../assets/icons/chevron_right-24px.svg";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './WarehouseList.scss';
+import searchIcon from '../../assets/icons/search-24px.svg';
+import arrowUpDown from '../../assets/icons/sort-24px.svg';
+import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
+import editIcon from '../../assets/icons/edit-24px-blue.svg';
+import rightIcon from '../../assets/icons/chevron_right-24px.svg';
+import axios from 'axios';
 
-function WarehouseList() {
+export default function WarehouseList() {
   let location = useLocation();
+
   const [allWarehouses, setAllWarehouses] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/warehouses").then((res) => {
+    axios.get('http://localhost:8080/warehouses').then((res) => {
       setAllWarehouses(res.data);
     });
   }, []);
-  return (
-    <div className="wrh-lst-cont">
-      <div className="wrh-lst-header">
-        <div className="wrh-lst-header-h1">
-          <h1>Warehouse</h1>
-        </div>
 
-        <div className="wrh-lst-header-search">
-          <div className="search-container">
+  return (
+    <div className="warehouses-list">
+      <div className="warehouses-list__header">
+        <h1 className="warehouses-list__title">Warehouses</h1>
+        <div className="warehouses-list__action-wrapper">
+          <div className="warehouses-list__search-container">
             <input
-              type={"text"}
-              className="search-inp"
+              type={'text'}
+              className="warehouses-list__search-input"
               placeholder="Search.."
             />
             <img
               src={searchIcon}
-              className="search-container-icon"
+              className="warehouses-list__search-icon"
               alt="search-icon"
             />
           </div>
-
-          <div className="btn-container">
-            <button className="wrh-lst-btn">
+          <div className="warehouses-list__btn">
+            <p className="warehouses-list__btn-txt">+ Add New Warehouse</p>
+          </div>
+        </div>
+      </div>
+      <div className="warehouses-list__table-container">
+        <div className="warehouses-list__table-header">
+          <div className="warehouses-list__table-align-left">
+            <div className="warehouses-list__table-header-wrapper">
+              <p className="warehouses-list__table-title">WAREHOUSE</p>
               <img
-                src={addIcon}
-                className="list-header-add-icon"
-                alt="search-btn"
+                src={arrowUpDown}
+                className="warehouses-list__arrow-up-down"
+                alt="arrow"
               />
-              Add New Warehouse
-            </button>
+            </div>
+            <div className="warehouses-list__table-header-wrapper">
+              <p className="warehouses-list__table-title">ADDRESS</p>
+              <img
+                src={arrowUpDown}
+                className="warehouses-list__arrow-up-down"
+                alt="arrow"
+              />
+            </div>
+            <Link to="" />
           </div>
+          <div className="warehouses-list__table-align-right">
+            <div className="warehouses-list__table-header-wrapper">
+              <p className="warehouses-list__table-title">CONTACT NAME</p>
+              <img
+                src={arrowUpDown}
+                className="warehouses-list__arrow-up-down"
+                alt="arrow"
+              />
+            </div>
+            <div className="warehouses-list__table-header-wrapper">
+              <p className="warehouses-list__table-title">
+                CONTACT INFORMATION
+              </p>
+              <img
+                src={arrowUpDown}
+                className="warehouses-list__arrow-up-down"
+                alt="arrow"
+              />
+            </div>
+            <div className="warehouses-list__table-header-wrapper">
+              <p className="warehouses-list__table-title">ACTIONS</p>
+            </div>
+          </div>
+        </div>
+        <div className="warehouses-list__table-body">
+          {allWarehouses.map((warehouse) => (
+            <div
+              className="warehouses-list__warehouse-container"
+              key={warehouse.id}>
+              <div className="warehouses-list__table-wrapper warehouses-list__table-wrapper--left">
+                <div className="warehouses-list__item-container">
+                  <h4 className="warehouses-list__item-label">WAREHOUSE</h4>
+                  <Link
+                    className="warehouses-list__link-wrapper"
+                    to={`/warehouse/${warehouse?.id}`}>
+                    <p className="warehouses-list__item-link">
+                      {warehouse?.name}
+                    </p>
+                    <img
+                      src={rightIcon}
+                      className="warehouses-list__right-icon"
+                      alt="right arrow"
+                    />
+                  </Link>
+                </div>
+                <div className="warehouses-list__item-container">
+                  <h4 className="warehouses-list__item-label">ADDRESS</h4>
+                  <p className="warehouses-list__item-txt">
+                    {warehouse?.address}
+                  </p>
+                  <p className="warehouses-list__item-txt warehouses-list__item-txt--blank mobile">
+                    DUMMY
+                  </p>
+                </div>
+                <Link
+                  to={{
+                    pathname:
+                      '/warehouse/delete/' + warehouse?.name.toLowerCase(),
+                    state: { background: location },
+                  }}>
+                  <img
+                    src={deleteIcon}
+                    className="warehouses-list__delete-icon mobile"
+                    alt="delete icon"
+                  />
+                </Link>
+              </div>
+              <div className="warehouses-list__table-wrapper warehouses-list__table-wrapper--right">
+                <div className="warehouses-list__item-container">
+                  <h4 className="warehouses-list__item-label">CONTACT NAME</h4>
+                  <p className="warehouses-list__item-txt">
+                    {warehouse?.contact?.name}
+                  </p>
+                </div>
+                <div className="warehouses-list__item-container">
+                  <h4 className="warehouses-list__item-label">
+                    CONTACT INFORMATION
+                  </h4>
+                  <p className="warehouses-list__item-txt">
+                    {warehouse?.contact?.phone}
+                    <br /> {warehouse?.contact?.email}
+                  </p>
+                </div>
+                <img
+                  src={editIcon}
+                  className="warehouses-list__edit-icon mobile"
+                  alt="edit icon"
+                />
+                <div className="warehouses-list__table-action-wrapper tablet">
+                  <Link
+                    to={{
+                      pathname:
+                        '/warehouse/delete/' + warehouse?.name.toLowerCase(),
+                      state: { background: location },
+                    }}>
+                    <img
+                      src={deleteIcon}
+                      className="warehouses-list__delete-icon tablet"
+                      alt="delete icon"
+                    />
+                  </Link>
+                  <img
+                    src={editIcon}
+                    className="warehouses-list__edit-icon tablet"
+                    alt="edit icon"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <div className="wrh-lst-titles-cont">
-        <div className="titleNames">
-          <span>WAREHOUSE</span>
-          <img src={arrowUpDown} className="arrow-up-down" alt="arrow" />
-        </div>
-
-        <div className="titleNames">
-          <span>ADDRESS</span>
-          <img src={arrowUpDown} className="arrow-up-down" alt="arrow" />
-        </div>
-
-        <div className="titleNames">
-          <span>CONTACT NAME</span>
-          <img src={arrowUpDown} className="arrow-up-down" alt="arrow" />
-        </div>
-
-        <div className="titleNames">
-          <span>CONTACT INFORMATION</span>
-          <img src={arrowUpDown} className="arrow-up-down" alt="arrow" />
-        </div>
-
-        <div className="titleNames title-action">
-          <span>ACTIONS</span>
-        </div>
-      </div>
-
-      {allWarehouses.map((warehouse) => (
-        <div className="wrh-lst-items-cont" key={warehouse.id}>
-          <div className="titleNames">
-            <Link to={`/warehouse/${warehouse?.id}`}>
-              <span className="link">
-                {warehouse?.name}
-                <img className="rightIcon" src={rightIcon} alt="right" />
-              </span>
-            </Link>
-          </div>
-
-          <div className="titleNames">
-            <span>{warehouse?.address}</span>
-          </div>
-
-          <div className="titleNames">
-            <span>{warehouse?.contact?.name}</span>
-          </div>
-
-          <div className="titleNames">
-            <span>
-              {warehouse?.contact?.phone}
-              <br />
-              {warehouse?.contact?.email}
-            </span>
-          </div>
-
-          <div className="titleNames title-action">
-            <Link
-              to={{
-                pathname: "/warehouse/delete/new york",
-                state: { background: location },
-              }}
-            >
-              <img src={deleteIcon} className="deleteIcon" alt="delete" />
-            </Link>
-            <img src={editIcon} className="editIcon" alt="edit" />
-          </div>
-        </div>
-      ))}
     </div>
   );
 }
-
-export default WarehouseList;
