@@ -113,12 +113,21 @@ function InventoryList() {
                 {inventory.warehouseName}
               </p>
               <section className="invList__items--icons">
-                <button className="invList__items--button">
-                  <img src={deleteIcon} />
-                </button>
-                <button className="invList__items--button">
-                  <img src={editIcon} />
-                </button>
+                <Link
+                  to={{
+                    pathname: "/inventory-item/delete",
+                    state: { background: item },
+                  }}
+                >
+                  <button className="invList__items--button">
+                    <img src={deleteIcon} />
+                  </button>
+                </Link>
+                <Link to={`/inventory-item/edit${inventory.id}`}>
+                  <button className="invList__items--button">
+                    <img src={editIcon} />
+                  </button>
+                </Link>
               </section>
             </div>
           </div>
