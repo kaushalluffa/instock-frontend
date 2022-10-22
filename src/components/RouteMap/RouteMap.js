@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Route, useLocation, Switch } from 'react-router-dom';
 import WarehouseList from '../WarehouseList/WarehouseList';
@@ -7,6 +8,18 @@ import AddNewInventoryItem from '../AddNewInventoryItem/AddNewInventoryItem';
 import InventoryItemDetails from '../InventoryItemDetail/InventoryItemDetail';
 import EditWarehouse from '../EditWarehouse/EditWarehouse';
 import AddWarehouse from '../AddWarehouse/AddWarehouse';
+=======
+import React from "react";
+import { Route, useLocation, Switch } from "react-router-dom";
+import WarehouseList from "../WarehouseList/WarehouseList";
+import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
+import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
+import AddNewInventoryItem from "../AddNewInventoryItem/AddNewInventoryItem";
+import InventoryItemDetails from "../InventoryItemDetail/InventoryItemDetail";
+import EditWarehouse from "../EditWarehouse/EditWarehouse";
+import AddWarehouse from "../AddWarehouse/AddWarehouse";
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
+>>>>>>> develop
 
 export default function NavigationMap() {
   let location = useLocation();
@@ -19,12 +32,14 @@ export default function NavigationMap() {
         <Route exact path="/warehouse/new" children={<AddWarehouse />} />
         <Route path="/warehouse/:warehouseId" children={<WarehouseDetails />} />
         <Route path="/inventory/delete/:item" children="" />
+
         <Route exact path="/inventory/edit/:item" children="" />
         <Route path="/inventory/new" children={<AddNewInventoryItem />} />
         <Route
           path="/inventory/:warehouseId/:item"
           children={<InventoryItemDetails />}
         />
+
         <Route exact path="/warehouse" children={<WarehouseList />} />
         <Route exact path="/inventory" children="" />
         <Route exact path="/" children={<WarehouseList />} />
@@ -35,6 +50,9 @@ export default function NavigationMap() {
           path="/warehouse/delete/:location"
           children={<DeleteWarehouse />}
         />
+      )}
+      {background && (
+        <Route path="/inventory/delete/:item" children={<DeleteInventory />} />
       )}
     </>
   );
