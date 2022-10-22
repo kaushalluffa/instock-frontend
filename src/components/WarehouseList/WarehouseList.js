@@ -77,31 +77,30 @@ function WarehouseList() {
         </div>
       </div>
 
-      {/* THIS SECTION IS HARDCODED FOR NOW UNTIL WE REPLACE IT WITH API DATA */}
       {allWarehouses.map((warehouse) => (
         <div className="wrh-lst-items-cont" key={warehouse.id}>
           <div className="titleNames">
-            <Link to={`/warehouse/${warehouse.id}`}>
+            <Link to={`/warehouse/${warehouse?.id}`}>
               <span className="link">
-                {warehouse.name}
+                {warehouse?.name}
                 <img className="rightIcon" src={rightIcon} alt="right" />
               </span>
             </Link>
           </div>
 
           <div className="titleNames">
-            <span>{warehouse.address}</span>
+            <span>{warehouse?.address}</span>
           </div>
 
           <div className="titleNames">
-            <span>{warehouse.contact.name}</span>
+            <span>{warehouse?.contact?.name}</span>
           </div>
 
           <div className="titleNames">
             <span>
-              {warehouse.contact.phone}
+              {warehouse?.contact?.phone}
               <br />
-              {warehouse.contact.email}
+              {warehouse?.contact?.email}
             </span>
           </div>
 
@@ -118,41 +117,7 @@ function WarehouseList() {
           </div>
         </div>
       ))}
-      {/* <div className="wrh-lst-items-cont">
-        <div className="titleNames">
-          <span className="link">
-            Manhattan <img className="rightIcon" src={rightIcon} alt="right" />
-          </span>
-        </div>
-
-        <div className="titleNames">
-          <span>503, Broadway New York, USA</span>
-        </div>
-
-        <div className="titleNames">
-          <span>Parmin Aulja</span>
-        </div>
-
-        <div className="titleNames">
-          <span>
-            +1 (625) 555-0236
-            <br />
-            paujla@instock.com
-          </span>
-        </div>
-
-        <div className="titleNames title-action">
-          <Link
-            to={{
-              pathname: "/warehouse/delete/new york",
-              state: { background: location },
-            }}
-          >
-            <img src={deleteIcon} className="deleteIcon" alt="delete" />
-          </Link>
-          <img src={editIcon} className="editIcon" alt="edit" />
-        </div>
-      </div> */}
+     
     </div>
   );
 }
