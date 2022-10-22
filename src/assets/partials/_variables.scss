@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,15 +18,15 @@ $white: #ffffff;
 
 // font-face
 @font-face {
-  font-family: "Titillium Web", sans-serif;
-  @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+  font-family: 'Titillium Web', sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 }
 @font-face {
-  font-family: "Titillium Web", sans-serif;
-  @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+  font-family: 'Titillium Web', sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 }
 
-$titillium: "Titillium Web", sans-serif;
+$titillium: 'Titillium Web', sans-serif;
 $reg-font-weight: 400;
 $bold-font-weight: 600;
 
