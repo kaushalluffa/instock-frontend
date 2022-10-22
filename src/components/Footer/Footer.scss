@@ -1,0 +1,9 @@
+@import "../../assets//partials/variables";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+  font-size: 1rem;
+  color: $slate;
+}
