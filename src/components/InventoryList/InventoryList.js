@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./InventoryList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px-blue.svg";
 import rightIcon from "../../assets/icons/chevron_right-24px.svg";
+import axios from "axios";
 
 function InventoryList() {
+  let item = useLocation();
+  const [allInventories, setAllInventories] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:8080/inventories").then((res) => {
+      setAllInventories(res.data);
+    });
+  });
   return (
     <div className="invList">
       <div className="invList_container">
