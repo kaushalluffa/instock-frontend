@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AddWarehouse.scss";
 import ArrowBack from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function AddWarehouse(props) {
   // initialize state for all warehouse details input fields
