@@ -11,6 +11,7 @@ const EditInventoryItem = (props) => {
   const [itemDescription, setItemDescription] = useState("")
   const [itemCategory, setItemCategory] = useState("")
   const [itemStatus, setItemStatus] = useState(false)
+  const [itemQuantity, setItemQuantity] = useState(0)
   const [itemWarehouse, setItemWarehouse] = useState("")
   const categories = ["Electronics", "Gear", "Apparel", "Accessories", "Health"]
 
@@ -54,7 +55,7 @@ const EditInventoryItem = (props) => {
     setItemDescription("")
     setItemCategory("")
     setItemStatus(true)
-
+    setItemQuantity(0)
     setItemWarehouse("")
   }
 
