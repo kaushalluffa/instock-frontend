@@ -5,6 +5,7 @@ import { ReactComponent as DropDown } from "../../assets/icons/arrow_drop_down-2
 import { v4 as uuidv4 } from "uuid";
 
 import "./AddNewInventoryItem.scss";
+import { useHistory } from "react-router-dom";
 const AddNewInventoryItem = (props) => {
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
@@ -12,6 +13,7 @@ const AddNewInventoryItem = (props) => {
   const [itemStatus, setItemStatus] = useState(true);
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemWarehouse, setItemWarehouse] = useState("");
+  const history = useHistory()
   const categories = [
     "Electronics",
     "Gear",
@@ -55,7 +57,7 @@ const AddNewInventoryItem = (props) => {
     <div className="addNewItem">
       <div className="addNewItem__header">
         <div className="addNewItem__name">
-          <span className="addNewItem__name--icon">
+          <span className="addNewItem__name--icon" onClick={history.goBack}>
             <ArrowBack />
           </span>
           <h1 className="addNewItem__name--heading">Add New Inventory Item</h1>
