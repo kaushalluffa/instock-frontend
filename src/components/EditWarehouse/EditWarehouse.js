@@ -122,9 +122,9 @@ function EditWarehouse(props) {
           </div>
         </div>
         <div className="editWarehouse__buttons">
-          <button className="editWarehouse__button editWarehouse__button--cancel">
+        <Link to="/warehouse/:warehouseId"><button className="editWarehouse__button editWarehouse__button--cancel">
             <h3 className="heading-3--cancel">Cancel</h3>
-          </button>
+          </button></Link>
           <button className="editWarehouse__button editWarehouse__button--save">
             <h3 className="heading-3--save" onClick={editWarehouseDetails}>
               Save

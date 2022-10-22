@@ -178,9 +178,9 @@ function AddWarehouse(props) {
           </div>
         </div>
         <div className="addWarehouse__buttons">
-          <button className="addWarehouse__button addWarehouse__button--cancel">
+        <Link to="/warehouse"><button className="addWarehouse__button addWarehouse__button--cancel">
             <h3 className="heading-3--cancel">Cancel</h3>
-          </button>
+          </button></Link>
           <button className="addWarehouse__button addWarehouse__button--save">
             <h3 className="heading-3--save" type="submit">
               + Add Warehouse
