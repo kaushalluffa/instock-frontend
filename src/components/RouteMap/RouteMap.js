@@ -5,6 +5,7 @@ import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 import WarehouseDetails from '../WarehouseDetails/WarehouseDetails';
 import AddNewInventoryItem from '../AddNewInventoryItem/AddNewInventoryItem';
 import InventoryItemDetails from '../InventoryItemDetail/InventoryItemDetail';
+import EditWarehouse from "../EditWarehouse/EditWarehouse"
 
 export default function NavigationMap() {
   let location = useLocation();
@@ -13,7 +14,7 @@ export default function NavigationMap() {
   return (
     <>
       <Switch location={background || location}>
-        <Route path="/warehouse/edit/:location" children="" />
+        <Route path="/warehouse/edit/:location" children={<EditWarehouse/>} />
         <Route path="/warehouse/:warehouseId" children={<WarehouseDetails />} />
         <Route exact path="/warehouse/new" children="" />
         <Route path="/inventory/delete/:item" children="" />
