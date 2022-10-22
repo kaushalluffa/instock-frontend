@@ -59,7 +59,7 @@ export default function WarehouseList() {
                 alt="arrow"
               />
             </div>
-            <Link />
+            <Link to="" />
           </div>
           <div className="warehouses-list__table-align-right">
             <div className="warehouses-list__table-header-wrapper">

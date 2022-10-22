@@ -20,14 +20,12 @@ export default function NavigationMap() {
         <Route exact path="/warehouse/new" children={<AddWarehouse />} />
         <Route path="/warehouse/:warehouseId" children={<WarehouseDetails />} />
         <Route path="/inventory/delete/:item" children="" />
-
         <Route exact path="/inventory/edit/:item" children="" />
         <Route path="/inventory/new" children={<AddNewInventoryItem />} />
         <Route
           path="/inventory/:warehouseId/:item"
           children={<InventoryItemDetails />}
         />
-
         <Route exact path="/warehouse" children={<WarehouseList />} />
         <Route exact path="/inventory" children="" />
         <Route exact path="/" children={<WarehouseList />} />
