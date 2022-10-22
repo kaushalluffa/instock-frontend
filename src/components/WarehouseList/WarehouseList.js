@@ -117,7 +117,6 @@ function WarehouseList() {
           </div>
         </div>
       ))}
-     
     </div>
   );
 }
