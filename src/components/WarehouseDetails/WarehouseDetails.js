@@ -123,7 +123,9 @@ function WarehouseDetails() {
               >
                 <td>
                   <Link
-                    to={`/inventory/${singleWareHouse?.itemName.toLowerCase()}`}
+                    to={`/inventory/${
+                      singleWareHouse?.warehouseID
+                    }/${singleWareHouse?.itemName.toLowerCase()}`}
                   >
                     <h3 className="itemName">
                       {singleWareHouse?.itemName} <ChevronRight />
