@@ -1,21 +1,20 @@
 import axios from "axios"
 import React, { useState } from "react"
+import { useHistory, useParams } from "react-router-dom"
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg"
 import { ReactComponent as DropDown } from "../../assets/icons/arrow_drop_down-24px.svg"
-import { v4 as uuidv4 } from "uuid"
+import "./EditInventoryItem.scss"
 
-import "./AddNewInventoryItem.scss"
-import { useHistory } from "react-router-dom"
-const AddNewInventoryItem = (props) => {
+const EditInventoryItem = (props) => {
   const [itemName, setItemName] = useState("")
   const [itemDescription, setItemDescription] = useState("")
   const [itemCategory, setItemCategory] = useState("")
-  const [itemStatus, setItemStatus] = useState(true)
+  const [itemStatus, setItemStatus] = useState(false)
   const [itemQuantity, setItemQuantity] = useState(0)
   const [itemWarehouse, setItemWarehouse] = useState("")
-  const [warehouseID, setWarehouseID] = useState("")
-  const history = useHistory()
   const categories = ["Electronics", "Gear", "Apparel", "Accessories", "Health"]
+  const { warehouseID, inventoryId } = useParams()
+  const history = useHistory()
   const warehouses = [
     "Manhattan",
     "Washington",
@@ -25,6 +24,7 @@ const AddNewInventoryItem = (props) => {
     "Seattle",
     "Miami",
   ]
+
   function statusHandler(e) {
     if (e.target.value === "In Stock") {
       setItemStatus(true)
@@ -33,50 +33,45 @@ const AddNewInventoryItem = (props) => {
       setItemStatus(false)
     }
   }
-  function getWarehouseId(name) {
-    axios.get("http://localhost:8080/warehouses").then((res) => {
-      const selectedWarehouse = res.data.find((w) => w.name === name)
-      setWarehouseID(selectedWarehouse.id)
-    })
-  }
-  const newInventoryItemData = {
-    id: uuidv4(),
-    warehouseID: warehouseID,
-    warehouseName: itemWarehouse,
+
+  const editInventoryItemData = {
+    id: inventoryId,
     itemName: itemName,
     description: itemDescription,
     category: itemCategory,
     status: itemStatus ? "In Stock" : "Out of Stock",
+    warehouseID: warehouseID,
     quantity: itemQuantity,
+    warehouseName: itemWarehouse,
   }
-  function postNewInventoryItem() {
-    getWarehouseId(itemWarehouse)
+  function editInventoryItem() {
     axios({
       method: "post",
-      url: "http://localhost:8080/inventory-item/create",
-      data: newInventoryItemData,
+      url: "http://localhost:8080/inventory-item/edit",
+      data: editInventoryItemData,
     })
     setItemName("")
     setItemDescription("")
     setItemCategory("")
-    setItemStatus(true)
-    setItemQuantity(0)
+    setItemStatus("")
+    setItemQuantity("")
     setItemWarehouse("")
   }
+
   return (
-    <div className="addNewItem">
-      <div className="addNewItem__header">
-        <div className="addNewItem__name">
-          <span className="addNewItem__name--icon" onClick={history.goBack}>
+    <div className="editItem">
+      <div className="editItem__header">
+        <div className="editItem__name">
+          <span onClick={history.goBack} className="editItem__name--icon">
             <ArrowBack />
           </span>
-          <h1 className="addNewItem__name--heading">Add New Inventory Item</h1>
+          <h1 className="editItem__name--heading">Edit Inventory Item</h1>
         </div>
       </div>
-      <div className="addNewItem__container">
-        <div className="addNewItem__details">
-          <h2 className="addNewItem__details--heading">Item Details</h2>
-          <div className="addNewItem__details--name">
+      <div className="editItem__container">
+        <div className="editItem__details">
+          <h2 className="editItem__details--heading">Item Details</h2>
+          <div className="editItem__details--name">
             <label className="label">Item Name</label>
             <input
               type="text"
@@ -85,7 +80,7 @@ const AddNewInventoryItem = (props) => {
               required
             />
           </div>
-          <div className="addNewItem__details--name">
+          <div className="editItem__details--name">
             <label className="label">Item Description</label>
             <textarea
               type="text"
@@ -94,7 +89,7 @@ const AddNewInventoryItem = (props) => {
               required
             />
           </div>
-          <div className="addNewItem__details--name">
+          <div className="editItem__details--name">
             <label className="label">Category</label>
             <select
               value={itemCategory}
@@ -114,11 +109,9 @@ const AddNewInventoryItem = (props) => {
             </select>
           </div>
         </div>
-        <div className="addNewItem__availability">
-          <h2 className="addNewItem__availability--heading">
-            Item Availability
-          </h2>
-          <div className="addNewItem__availability--status">
+        <div className="editItem__availability">
+          <h2 className="editItem__availability--heading">Item Availability</h2>
+          <div className="editItem__availability--status">
             <label className="label">Status</label>
             <div className="radio__container">
               <input
@@ -144,17 +137,8 @@ const AddNewInventoryItem = (props) => {
               <label htmlFor="outOfStock">Out Of Stock</label>
             </div>
           </div>
-          <div className="addNewItem__availability--quantity">
-            <label className="label">Quantity</label>
-            <input
-              type="number"
-              disabled={!itemStatus}
-              required
-              value={itemQuantity}
-              onChange={(e) => setItemQuantity(e.target.value)}
-            />
-          </div>
-          <div className="addNewItem__availability--warehouse">
+
+          <div className="editItem__availability--warehouse">
             <label className="label">Warehouse</label>
             <select
               value={itemWarehouse}
@@ -175,17 +159,13 @@ const AddNewInventoryItem = (props) => {
           </div>
         </div>
       </div>
-      <div className="addNewItem__footer">
-        <button className="addNewItem__footer--cancel">Cancel</button>
-        <button
-          className="addNewItem__footer--add"
-          onClick={postNewInventoryItem}
-        >
-          + Add Item
+      <div className="editItem__footer">
+        <button className="editItem__footer--cancel">Cancel</button>
+        <button className="editItem__footer--edit" onClick={editInventoryItem}>
+          Save
         </button>
       </div>
     </div>
   )
 }
-
-export default AddNewInventoryItem
+export default EditInventoryItem

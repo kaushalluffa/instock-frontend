@@ -1,47 +1,48 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import axios from 'axios';
-import './InventoryItemDetail.scss';
-import editIcon from '../../assets/icons/edit-24px.svg';
-import backArrow from '../../assets/icons/arrow_back-24px.svg';
+import React from "react"
+import { useEffect, useState } from "react"
+import { useParams, useHistory, Link } from "react-router-dom"
+import axios from "axios"
+import "./InventoryItemDetail.scss"
+import editIcon from "../../assets/icons/edit-24px.svg"
+import backArrow from "../../assets/icons/arrow_back-24px.svg"
 
 export default function InventoryItemDetails() {
-  let history = useHistory();
-  let { warehouseId, item } = useParams();
-  let url = 'http://localhost:8080/inventories';
+  let history = useHistory()
+  let { warehouseId, item } = useParams()
+  let url = "http://localhost:8080/inventories"
 
   const [itemToDisplay, setItemToDisplay] = useState({
-    itemName: '',
-    description: '',
-    category: '',
+    itemName: "",
+    description: "",
+    category: "",
     quantity: 0,
-    warehouse: '',
-    stock: '',
-  });
+    warehouse: "",
+    stock: "",
+    inventoryId: "",
+  })
 
   //function that handles click on return button
   function back(e) {
     //prevent multiple clicks to bring the use further back into the route
-    e.stopPropagation();
+    e.stopPropagation()
     //go back to the route in which this was called
-    history.goBack();
+    history.goBack()
   }
 
   //function that changes HTML depending if item is in stock or not
   function returnStock() {
-    if (itemToDisplay.stock === 'In Stock') {
+    if (itemToDisplay.stock === "In Stock") {
       return (
         <p className="item-detail__text item-detail__text--in-stock">
           IN STOCK
         </p>
-      );
+      )
     } else {
       return (
         <p className="item-detail__text item-detail__text--off-stock">
           OUT OF STOCK
         </p>
-      );
+      )
     }
   }
 
@@ -53,7 +54,8 @@ export default function InventoryItemDetails() {
           (inventoryItem) =>
             inventoryItem.warehouseID === warehouseId &&
             inventoryItem.itemName.toLowerCase() === item
-        );
+        )
+
         setItemToDisplay({
           itemName: getItem[0].itemName,
           description: getItem[0].description,
@@ -61,12 +63,13 @@ export default function InventoryItemDetails() {
           warehouse: getItem[0].warehouseName,
           stock: getItem[0].status,
           category: getItem[0].category,
-        });
+          inventoryId: getItem[0]?.id,
+        })
       })
       .catch((e) => {
-        console.log(e);
-      });
-  }, [url, item, warehouseId]);
+        console.log(e)
+      })
+  }, [url, item, warehouseId])
 
   return (
     <div className="item-detail">
@@ -81,13 +84,18 @@ export default function InventoryItemDetails() {
           <h1 className="item-detail__title">{itemToDisplay.itemName}</h1>
         </div>
         <div className="item-detail__edit-wrapper">
-          <img
-            // will add onClick event for opening the edit details
-            className="item-detail__edit-icon"
-            src={editIcon}
-            alt="edit icon"
-          />
-          <p className="item-detail__edit-text">Edit</p>
+          <Link
+            to={`/inventory/edit/${warehouseId}/${itemToDisplay.inventoryId}`}
+          >
+            <img
+              // will add onClick event for opening the edit details
+              className="item-detail__edit-icon"
+              src={editIcon}
+              alt="edit icon"
+            />
+
+            <p className="item-detail__edit-text">Edit</p>
+          </Link>
         </div>
       </div>
       <div className="item-detail__card">
@@ -115,5 +123,5 @@ export default function InventoryItemDetails() {
         </div>
       </div>
     </div>
-  );
+  )
 }

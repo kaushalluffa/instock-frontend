@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './WarehouseList.scss';
-import searchIcon from '../../assets/icons/search-24px.svg';
-import arrowUpDown from '../../assets/icons/sort-24px.svg';
-import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
-import editIcon from '../../assets/icons/edit-24px-blue.svg';
-import rightIcon from '../../assets/icons/chevron_right-24px.svg';
-import axios from 'axios';
+import React, { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import "./WarehouseList.scss"
+import searchIcon from "../../assets/icons/search-24px.svg"
+import arrowUpDown from "../../assets/icons/sort-24px.svg"
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
+import editIcon from "../../assets/icons/edit-24px-blue.svg"
+import rightIcon from "../../assets/icons/chevron_right-24px.svg"
+import axios from "axios"
 
 export default function WarehouseList() {
-  let location = useLocation();
+  let location = useLocation()
 
-  const [allWarehouses, setAllWarehouses] = useState([]);
+  const [allWarehouses, setAllWarehouses] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:8080/warehouses').then((res) => {
-      setAllWarehouses(res.data);
-    });
-  }, []);
+    axios.get("http://localhost:8080/warehouses").then((res) => {
+      setAllWarehouses(res.data)
+    })
+  }, [])
 
   return (
     <div className="warehouses-list">
@@ -25,7 +25,7 @@ export default function WarehouseList() {
         <div className="warehouses-list__action-wrapper">
           <div className="warehouses-list__search-container">
             <input
-              type={'text'}
+              type={"text"}
               className="warehouses-list__search-input"
               placeholder="Search.."
             />
@@ -36,7 +36,9 @@ export default function WarehouseList() {
             />
           </div>
           <div className="warehouses-list__btn">
-            <p className="warehouses-list__btn-txt">+ Add New Warehouse</p>
+            <Link to="/warehouse/new">
+              <p className="warehouses-list__btn-txt">+ Add New Warehouse</p>
+            </Link>
           </div>
         </div>
       </div>
@@ -59,7 +61,6 @@ export default function WarehouseList() {
                 alt="arrow"
               />
             </div>
-            <Link to="" />
           </div>
           <div className="warehouses-list__table-align-right">
             <div className="warehouses-list__table-header-wrapper">
@@ -89,13 +90,15 @@ export default function WarehouseList() {
           {allWarehouses.map((warehouse) => (
             <div
               className="warehouses-list__warehouse-container"
-              key={warehouse.id}>
+              key={warehouse.id}
+            >
               <div className="warehouses-list__table-wrapper warehouses-list__table-wrapper--left">
                 <div className="warehouses-list__item-container">
                   <h4 className="warehouses-list__item-label">WAREHOUSE</h4>
                   <Link
                     className="warehouses-list__link-wrapper"
-                    to={`/warehouse/${warehouse?.id}`}>
+                    to={`/warehouse/${warehouse?.id}`}
+                  >
                     <p className="warehouses-list__item-link">
                       {warehouse?.name}
                     </p>
@@ -118,9 +121,10 @@ export default function WarehouseList() {
                 <Link
                   to={{
                     pathname:
-                      '/warehouse/delete/' + warehouse?.name.toLowerCase(),
+                      "/warehouse/delete/" + warehouse?.name.toLowerCase(),
                     state: { background: location },
-                  }}>
+                  }}
+                >
                   <img
                     src={deleteIcon}
                     className="warehouses-list__delete-icon mobile"
@@ -153,20 +157,23 @@ export default function WarehouseList() {
                   <Link
                     to={{
                       pathname:
-                        '/warehouse/delete/' + warehouse?.name.toLowerCase(),
+                        "/warehouse/delete/" + warehouse?.name.toLowerCase(),
                       state: { background: location },
-                    }}>
+                    }}
+                  >
                     <img
                       src={deleteIcon}
                       className="warehouses-list__delete-icon tablet"
                       alt="delete icon"
                     />
                   </Link>
-                  <img
-                    src={editIcon}
-                    className="warehouses-list__edit-icon tablet"
-                    alt="edit icon"
-                  />
+                  <Link to={`/warehouse/edit/${warehouse?.id}`}>
+                    <img
+                      src={editIcon}
+                      className="warehouses-list__edit-icon tablet"
+                      alt="edit icon"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -174,5 +181,5 @@ export default function WarehouseList() {
         </div>
       </div>
     </div>
-  );
+  )
 }
