@@ -39,6 +39,7 @@ const EditInventoryItem = (props) => {
     category: itemCategory,
     status: itemStatus ? "In Stock" : "Out of Stock",
     warehouseID: props.warehouseID,
+    quantity: itemQuantity,
     warehouseName: itemWarehouse || "Manhattan",
   }
   function editInventoryItem() {
