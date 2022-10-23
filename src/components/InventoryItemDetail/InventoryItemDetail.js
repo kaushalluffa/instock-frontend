@@ -55,7 +55,7 @@ export default function InventoryItemDetails() {
             inventoryItem.warehouseID === warehouseId &&
             inventoryItem.itemName.toLowerCase() === item
         )
-        console.log(getItem)
+
         setItemToDisplay({
           itemName: getItem[0].itemName,
           description: getItem[0].description,
@@ -71,7 +71,6 @@ export default function InventoryItemDetails() {
       })
   }, [url, item, warehouseId])
 
-  console.log("state", itemToDisplay)
   return (
     <div className="item-detail">
       <div className="item-detail__header">

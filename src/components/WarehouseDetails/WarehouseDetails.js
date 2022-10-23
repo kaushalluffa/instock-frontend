@@ -7,7 +7,7 @@ import { ReactComponent as EditBtnBlue } from "../../assets/icons/edit-24px-blue
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg"
 import "./WarehouseDetails.scss"
 
-import { Link, useHistory, useParams } from "react-router-dom"
+import { Link, useHistory, useLocation, useParams } from "react-router-dom"
 import axios from "axios"
 
 function WarehouseDetails() {
@@ -15,6 +15,7 @@ function WarehouseDetails() {
   const [inventoryData, setInventoryData] = useState([])
   const [warehouseData, setWarehouseData] = useState({})
   const history = useHistory()
+  let location = useLocation()
 
   useEffect(() => {
     axios
@@ -81,9 +82,7 @@ function WarehouseDetails() {
           </div>
         </div>
       </div>
-      {/*
-      hardcoded info inside above section will be replaced with variables when fetched from the api
-       */}
+
       <div className="warehouseDetails__inventory">
         <table>
           <thead>
@@ -154,10 +153,23 @@ function WarehouseDetails() {
                 <td>
                   <div className="itemActions">
                     <div className="deleteBtn">
-                      <DeleteBtn />
+                      <Link
+                        to={{
+                          pathname:
+                            "/inventory/delete/" +
+                            singleWareHouse?.itemName.toLowerCase(),
+                          state: { background: location },
+                        }}
+                      >
+                        <DeleteBtn />
+                      </Link>
                     </div>
                     <div className="editBtn">
-                      <EditBtnBlue />
+                      <Link
+                        to={`/inventory/edit/${warehouseId}/${singleWareHouse?.id}`}
+                      >
+                        <EditBtnBlue />
+                      </Link>
                     </div>
                   </div>
                 </td>
@@ -207,7 +219,11 @@ function WarehouseDetails() {
                   {singleWareHouse?.quantity}
                 </div>
                 <div className="cta-mobile" style={{ alignSelf: "flex-end" }}>
-                  <EditBtnBlue />
+                  <Link
+                    to={`/inventory/edit/${warehouseId}/${singleWareHouse?.id}`}
+                  >
+                    <EditBtnBlue />
+                  </Link>
                 </div>
               </div>
             </div>

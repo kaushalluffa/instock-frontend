@@ -1,24 +1,25 @@
-import React, { useState } from "react";
-import "./EditWarehouse.scss";
-import ArrowBack from "../../assets/icons/arrow_back-24px.svg";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useState } from "react"
+import "./EditWarehouse.scss"
+import ArrowBack from "../../assets/icons/arrow_back-24px.svg"
+import axios from "axios"
+import { Link, useHistory, useParams } from "react-router-dom"
 
-function EditWarehouse(props) {
+function EditWarehouse() {
   // initialize state for all warehouse details input fields
-  const [warehouseName, setWarehouseName] = useState("");
-  const [warehouseStreetAddress, setWarehouseStreetAddress] = useState("");
-  const [warehouseCity, setwarehouseCity] = useState("");
-  const [warehouseCountry, setWarehouseCountry] = useState("");
-  const [contactName, setContactName] = useState("");
-  const [contactPosition, setContactPosition] = useState("");
-  const [contactPhoneNumber, setContactPhoneNumber] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
-
+  const [warehouseName, setWarehouseName] = useState("")
+  const [warehouseStreetAddress, setWarehouseStreetAddress] = useState("")
+  const [warehouseCity, setwarehouseCity] = useState("")
+  const [warehouseCountry, setWarehouseCountry] = useState("")
+  const [contactName, setContactName] = useState("")
+  const [contactPosition, setContactPosition] = useState("")
+  const [contactPhoneNumber, setContactPhoneNumber] = useState("")
+  const [contactEmail, setContactEmail] = useState("")
+  const { warehouseID } = useParams()
+  const history = useHistory()
   // editted warehouse details input from user
   const newWarehouseDetails = {
-    id: props?.id,
-    warehouseName: warehouseName,
+    id: warehouseID,
+    name: warehouseName,
     address: warehouseStreetAddress,
     city: warehouseCity,
     country: warehouseCountry,
@@ -28,30 +29,31 @@ function EditWarehouse(props) {
       phone: contactPhoneNumber,
       email: contactEmail,
     },
-  };
+  }
 
   // put request to edit warehouse object
-  function editWarehouseDetails() {
+  function editWarehouseDetails(e) {
+    e.preventDefault()
     axios({
-      method: "put",
-      url: "http://localhost:8080/warehouse/edit",
+      method: "post",
+      url: "http://localhost:8080/edit-warehouse",
       data: newWarehouseDetails,
-    });
-    setWarehouseName("");
-    setWarehouseStreetAddress("");
-    setwarehouseCity("");
-    setWarehouseCountry("");
-    setContactName("");
-    setContactPosition("");
-    setContactPhoneNumber("");
-    setContactEmail("");
+    })
+    setWarehouseName("")
+    setWarehouseStreetAddress("")
+    setwarehouseCity("")
+    setWarehouseCountry("")
+    setContactName("")
+    setContactPosition("")
+    setContactPhoneNumber("")
+    setContactEmail("")
   }
 
   return (
     <div className="editWarehouse">
       <div className="editWarehouse__header">
         <div className="editWarehouse__name">
-          <span className="editWarehouse__name--icon">
+          <span onClick={history.goBack} className="editWarehouse__name--icon">
             <img src={ArrowBack} alt="icon" />
           </span>
           <h1 className="editWarehouse__name--heading">Edit Warehouse</h1>
@@ -123,18 +125,23 @@ function EditWarehouse(props) {
           </div>
         </div>
         <div className="editWarehouse__buttons">
-        <Link to={`/warehouse/${props?.id}`}><button className="editWarehouse__button editWarehouse__button--cancel">
-            <h3 className="heading-3--cancel">Cancel</h3>
-          </button></Link>
+          <Link to={`/warehouse/${warehouseID}`}>
+            <button className="editWarehouse__button editWarehouse__button--cancel">
+              <h3 className="heading-3--cancel">Cancel</h3>
+            </button>
+          </Link>
           <button className="editWarehouse__button editWarehouse__button--save">
-            <h3 className="heading-3--save" onClick={editWarehouseDetails}>
+            <h3
+              className="heading-3--save"
+              onClick={(e) => editWarehouseDetails(e)}
+            >
               Save
             </h3>
           </button>
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default EditWarehouse;
+export default EditWarehouse

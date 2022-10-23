@@ -1,25 +1,26 @@
-import React, { useState } from "react";
-import "./AddWarehouse.scss";
-import ArrowBack from "../../assets/icons/arrow_back-24px.svg";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useState } from "react"
+import "./AddWarehouse.scss"
+import ArrowBack from "../../assets/icons/arrow_back-24px.svg"
+import axios from "axios"
+import { Link, useHistory } from "react-router-dom"
+import { v4 as uuidv4 } from "uuid"
 
-function AddWarehouse(props) {
+function AddWarehouse() {
   // initialize state for all warehouse details input fields
-  const [warehouseName, setWarehouseName] = useState("");
-  const [warehouseStreetAddress, setWarehouseStreetAddress] = useState("");
-  const [warehouseCity, setwarehouseCity] = useState("");
-  const [warehouseCountry, setWarehouseCountry] = useState("");
-  const [contactName, setContactName] = useState("");
-  const [contactPosition, setContactPosition] = useState("");
-  const [contactPhoneNumber, setContactPhoneNumber] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
-  const [error, setError] = useState({});
-
+  const [warehouseName, setWarehouseName] = useState("")
+  const [warehouseStreetAddress, setWarehouseStreetAddress] = useState("")
+  const [warehouseCity, setwarehouseCity] = useState("")
+  const [warehouseCountry, setWarehouseCountry] = useState("")
+  const [contactName, setContactName] = useState("")
+  const [contactPosition, setContactPosition] = useState("")
+  const [contactPhoneNumber, setContactPhoneNumber] = useState("")
+  const [contactEmail, setContactEmail] = useState("")
+  const [error, setError] = useState({})
+  const history = useHistory()
   // editted warehouse details input from user
   const newWarehouseDetails = {
-    id: props?.id,
-    warehouseName: warehouseName,
+    id: uuidv4(),
+    name: warehouseName,
     address: warehouseStreetAddress,
     city: warehouseCity,
     country: warehouseCountry,
@@ -29,69 +30,69 @@ function AddWarehouse(props) {
       phone: contactPhoneNumber,
       email: contactEmail,
     },
-  };
+  }
 
   function handleValidation() {
-    let formIsValid = true;
+    let formIsValid = true
 
     if (!warehouseName) {
-      formIsValid = false;
-      error["warehouseName"] = "This field is required";
+      formIsValid = false
+      error["warehouseName"] = "This field is required"
     }
     if (!warehouseStreetAddress) {
-      formIsValid = false;
-      error["warehouseStreetAddress"] = "This field is required";
+      formIsValid = false
+      error["warehouseStreetAddress"] = "This field is required"
     }
     if (!warehouseCity) {
-      formIsValid = false;
-      error["warehouseCity"] = "This field is required";
+      formIsValid = false
+      error["warehouseCity"] = "This field is required"
     }
     if (!warehouseCountry) {
-      formIsValid = false;
-      error["warehouseCountry"] = "This field is required";
+      formIsValid = false
+      error["warehouseCountry"] = "This field is required"
     }
     if (!contactName) {
-      formIsValid = false;
-      error["contactName"] = "This field is required";
+      formIsValid = false
+      error["contactName"] = "This field is required"
     }
     if (!contactPosition) {
-      formIsValid = false;
-      error["contactPosition"] = "This field is required";
+      formIsValid = false
+      error["contactPosition"] = "This field is required"
     }
     if (!contactPhoneNumber) {
-      formIsValid = false;
-      error["contactPhoneNumber"] = "This field is required";
+      formIsValid = false
+      error["contactPhoneNumber"] = "This field is required"
     }
     if (!contactEmail) {
-      formIsValid = false;
-      error["contactEmail"] = "This field is required";
+      formIsValid = false
+      error["contactEmail"] = "This field is required"
     }
-    return formIsValid;
+    return formIsValid
   }
 
   function resetFields() {
-    setWarehouseName("");
-    setWarehouseStreetAddress("");
-    setwarehouseCity("");
-    setWarehouseCountry("");
-    setContactName("");
-    setContactPosition("");
-    setContactPhoneNumber("");
-    setContactEmail("");
+    setWarehouseName("")
+    setWarehouseStreetAddress("")
+    setwarehouseCity("")
+    setWarehouseCountry("")
+    setContactName("")
+    setContactPosition("")
+    setContactPhoneNumber("")
+    setContactEmail("")
   }
 
   function formSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     if (handleValidation()) {
-      console.log("Form has been successfully submitted");
+      console.log("Form has been successfully submitted")
       axios({
         method: "post",
         url: "http://localhost:8080/warehouse/new",
         data: newWarehouseDetails,
-      });
-      resetFields();
+      })
+      resetFields()
     } else {
-      console.log("Form has missing fields. Please resolve the errors");
+      console.log("Form has missing fields. Please resolve the errors")
     }
   }
 
@@ -99,7 +100,7 @@ function AddWarehouse(props) {
     <div className="addWarehouse">
       <div className="addWarehouse__header">
         <div className="addWarehouse__name">
-          <span className="addWarehouse__name--icon">
+          <span onClick={history.goBack} className="addWarehouse__name--icon">
             <img src={ArrowBack} alt="icon" />
           </span>
           <h1 className="addWarehouse__name--heading">Add New Warehouse</h1>
@@ -179,9 +180,11 @@ function AddWarehouse(props) {
           </div>
         </div>
         <div className="addWarehouse__buttons">
-        <Link to="/warehouse"><button className="addWarehouse__button addWarehouse__button--cancel">
-            <h3 className="heading-3--cancel">Cancel</h3>
-          </button></Link>
+          <Link to="/warehouse">
+            <button className="addWarehouse__button addWarehouse__button--cancel">
+              <h3 className="heading-3--cancel">Cancel</h3>
+            </button>
+          </Link>
           <button className="addWarehouse__button addWarehouse__button--save">
             <h3 className="heading-3--save" type="submit">
               + Add Warehouse
@@ -190,7 +193,7 @@ function AddWarehouse(props) {
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default AddWarehouse;
+export default AddWarehouse

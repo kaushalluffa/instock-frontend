@@ -36,7 +36,9 @@ export default function WarehouseList() {
             />
           </div>
           <div className="warehouses-list__btn">
-            <p className="warehouses-list__btn-txt">+ Add New Warehouse</p>
+            <Link to="/warehouse/new">
+              <p className="warehouses-list__btn-txt">+ Add New Warehouse</p>
+            </Link>
           </div>
         </div>
       </div>
@@ -59,7 +61,6 @@ export default function WarehouseList() {
                 alt="arrow"
               />
             </div>
-            <Link to="" />
           </div>
           <div className="warehouses-list__table-align-right">
             <div className="warehouses-list__table-header-wrapper">
@@ -166,11 +167,13 @@ export default function WarehouseList() {
                       alt="delete icon"
                     />
                   </Link>
-                  <img
-                    src={editIcon}
-                    className="warehouses-list__edit-icon tablet"
-                    alt="edit icon"
-                  />
+                  <Link to={`/warehouse/edit/${warehouse?.id}`}>
+                    <img
+                      src={editIcon}
+                      className="warehouses-list__edit-icon tablet"
+                      alt="edit icon"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

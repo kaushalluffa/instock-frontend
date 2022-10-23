@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./InventoryList.scss";
-import searchIcon from "../../assets/icons/search-24px.svg";
-import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
-import editIcon from "../../assets/icons/edit-24px-blue.svg";
-import rightIcon from "../../assets/icons/chevron_right-24px.svg";
-import sortIcon from "../../assets/icons/sort-24px.svg";
-import axios from "axios";
+import React, { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import "./InventoryList.scss"
+import searchIcon from "../../assets/icons/search-24px.svg"
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
+import editIcon from "../../assets/icons/edit-24px-blue.svg"
+import rightIcon from "../../assets/icons/chevron_right-24px.svg"
+import sortIcon from "../../assets/icons/sort-24px.svg"
+import axios from "axios"
 
 function InventoryList() {
-  let location = useLocation();
-  const [allInventories, setAllInventories] = useState([]);
+  let location = useLocation()
+  const [allInventories, setAllInventories] = useState([])
   useEffect(() => {
     axios.get("http://localhost:8080/inventories").then((res) => {
-      setAllInventories(res.data);
-    });
-  }, []);
+      setAllInventories(res.data)
+    })
+  }, [])
   return (
     <div className="invList">
       <div className="invList__container">
@@ -46,9 +46,15 @@ function InventoryList() {
             <div className="invList__items--info">
               <section className="invList__items--left">
                 <p className="invList__items--title">INVENTORY ITEM</p>
-                <p className="invList__items--item">
-                  {inventory.itemName} <img src={rightIcon} />
-                </p>
+                <Link
+                  to={`/inventory/${
+                    inventory?.warehouseID
+                  }/${inventory?.itemName.toLowerCase()}`}
+                >
+                  <p className="invList__items--item">
+                    {inventory.itemName} <img src={rightIcon} />
+                  </p>
+                </Link>
                 <p className="invList__items--title">CATEGORY</p>
                 <p className="invList__items--category">{inventory.category}</p>
               </section>
@@ -75,7 +81,9 @@ function InventoryList() {
                   <img src={deleteIcon} />
                 </button>
               </Link>
-              <Link to="/inventory/edit">
+              <Link
+                to={`/inventory/edit/${inventory?.warehouseID}/${inventory?.id}`}
+              >
                 <button className="invList__items--button">
                   <img src={editIcon} />
                 </button>
@@ -117,7 +125,13 @@ function InventoryList() {
               <div className="invList__items--container">
                 <div className="invList__items--wrapper-left">
                   <p className="invList__items--item">
-                    {inventory.itemName} <img src={rightIcon} />
+                    <Link
+                      to={`/inventory/${
+                        inventory?.warehouseID
+                      }/${inventory?.itemName.toLowerCase()}`}
+                    >
+                      {inventory.itemName} <img src={rightIcon} />
+                    </Link>
                   </p>
 
                   <div className="invList__items--container">
@@ -161,7 +175,9 @@ function InventoryList() {
                           <img src={deleteIcon} />
                         </button>
                       </Link>
-                      <Link to="/inventory/edit">
+                      <Link
+                        to={`/inventory/edit/${inventory?.warehouseID}/${inventory?.id}`}
+                      >
                         <button className="invList__items--button">
                           <img src={editIcon} />
                         </button>
@@ -175,6 +191,6 @@ function InventoryList() {
         ))}
       </div>
     </div>
-  );
+  )
 }
-export default InventoryList;
+export default InventoryList

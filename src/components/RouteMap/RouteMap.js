@@ -18,7 +18,10 @@ export default function NavigationMap() {
   return (
     <>
       <Switch location={background || location}>
-        <Route path="/warehouse/edit/:location" children={<EditWarehouse />} />
+        <Route
+          path="/warehouse/edit/:warehouseID"
+          children={<EditWarehouse />}
+        />
         <Route exact path="/warehouse/new" children={<AddWarehouse />} />
         <Route path="/warehouse/:warehouseId" children={<WarehouseDetails />} />
         <Route path="/inventory/delete/:item" children="" />
