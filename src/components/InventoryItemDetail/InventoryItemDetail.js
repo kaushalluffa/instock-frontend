@@ -71,6 +71,7 @@ export default function InventoryItemDetails() {
       })
   }, [url, item, warehouseId])
 
+  console.log("state", itemToDisplay)
   return (
     <div className="item-detail">
       <div className="item-detail__header">
@@ -84,7 +85,9 @@ export default function InventoryItemDetails() {
           <h1 className="item-detail__title">{itemToDisplay.itemName}</h1>
         </div>
         <div className="item-detail__edit-wrapper">
-          <Link to={`inventory/edit/${warehouseId}/${inventoryId}`}>
+          <Link
+            to={`/inventory/edit/${warehouseId}/${itemToDisplay.inventoryId}`}
+          >
             <img
               // will add onClick event for opening the edit details
               className="item-detail__edit-icon"

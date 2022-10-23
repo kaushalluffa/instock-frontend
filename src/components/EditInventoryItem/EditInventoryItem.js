@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useState } from "react"
+import { useHistory, useParams } from "react-router-dom"
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg"
 import { ReactComponent as DropDown } from "../../assets/icons/arrow_drop_down-24px.svg"
 import "./EditInventoryItem.scss"
@@ -12,7 +13,8 @@ const EditInventoryItem = (props) => {
   const [itemQuantity, setItemQuantity] = useState(0)
   const [itemWarehouse, setItemWarehouse] = useState("")
   const categories = ["Electronics", "Gear", "Apparel", "Accessories", "Health"]
-
+  const { warehouseID, inventoryId } = useParams()
+  const history = useHistory()
   const warehouses = [
     "Manhattan",
     "Washington",
@@ -33,14 +35,14 @@ const EditInventoryItem = (props) => {
   }
 
   const editInventoryItemData = {
-    id: props?.id,
+    id: inventoryId,
     itemName: itemName,
     description: itemDescription,
     category: itemCategory,
     status: itemStatus ? "In Stock" : "Out of Stock",
-    warehouseID: props.warehouseID,
+    warehouseID: warehouseID,
     quantity: itemQuantity,
-    warehouseName: itemWarehouse || "Manhattan",
+    warehouseName: itemWarehouse,
   }
   function editInventoryItem() {
     axios({
@@ -60,7 +62,7 @@ const EditInventoryItem = (props) => {
     <div className="editItem">
       <div className="editItem__header">
         <div className="editItem__name">
-          <span className="editItem__name--icon">
+          <span onClick={history.goBack} className="editItem__name--icon">
             <ArrowBack />
           </span>
           <h1 className="editItem__name--heading">Edit Inventory Item</h1>

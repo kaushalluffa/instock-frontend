@@ -23,7 +23,7 @@ export default function NavigationMap() {
         <Route path="/inventory/delete/:item" children="" />
         <Route
           exact
-          path="/inventory/edit/:item"
+          path="/inventory/edit/:warehouseID/:inventoryId"
           children={<EditInventoryItem />}
         />
         <Route path="/inventory/new" children={<AddNewInventoryItem />} />
