@@ -2,8 +2,6 @@ import axios from "axios"
 import React, { useState } from "react"
 import { ReactComponent as ArrowBack } from "../../assets/icons/arrow_back-24px.svg"
 import { ReactComponent as DropDown } from "../../assets/icons/arrow_drop_down-24px.svg"
-import { v4 as uuidv4 } from "uuid"
-
 import "./EditInventoryItem.scss"
 
 const EditInventoryItem = (props) => {
@@ -35,14 +33,12 @@ const EditInventoryItem = (props) => {
   }
 
   const editInventoryItemData = {
-    id: uuidv4(),
-    itemName: itemName || "Television",
-    description:
-      itemDescription ||
-      'This 50", 4K LED TV provides a crystal-clear picture and vivid colors.',
-    category: itemCategory || "Electronics",
+    id: props?.id,
+    itemName: itemName,
+    description: itemDescription,
+    category: itemCategory,
     status: itemStatus ? "In Stock" : "Out of Stock",
-    warehouseID: props.warehouseID || "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    warehouseID: props.warehouseID,
     warehouseName: itemWarehouse || "Manhattan",
   }
   function editInventoryItem() {
@@ -54,8 +50,8 @@ const EditInventoryItem = (props) => {
     setItemName("")
     setItemDescription("")
     setItemCategory("")
-    setItemStatus(true)
-    setItemQuantity(0)
+    setItemStatus("")
+    setItemQuantity("")
     setItemWarehouse("")
   }
 
@@ -162,7 +158,7 @@ const EditInventoryItem = (props) => {
       </div>
       <div className="editItem__footer">
         <button className="editItem__footer--cancel">Cancel</button>
-        <button className="editItem__footer--add" onClick={EditInventoryItem}>
+        <button className="editItem__footer--edit" onClick={editInventoryItem}>
           Save
         </button>
       </div>
