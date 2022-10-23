@@ -75,9 +75,11 @@ function InventoryList() {
                   <img src={deleteIcon} />
                 </button>
               </Link>
-              <button className="invList__items--button">
-                <img src={editIcon} />
-              </button>
+              <Link to="/inventory/edit">
+                <button className="invList__items--button">
+                  <img src={editIcon} />
+                </button>
+              </Link>
             </section>
           </div>
         ))}
@@ -112,32 +114,62 @@ function InventoryList() {
         {allInventories.map((inventory) => (
           <div className="invList__items" key={inventory.id}>
             <div className="invList__items--info">
-              <p className="invList__items--item">
-                {inventory.itemName} <img src={rightIcon} />
-              </p>
-              <p className="invList__items--category">{inventory.category}</p>
-              <p className="invList__items--instock">{inventory.status}</p>
-              <p className="invList__items--qty">{inventory.quantity}</p>
-              <p className="invList__items--warehouse">
-                {inventory.warehouseName}
-              </p>
-              <section className="invList__items--icons">
-                <Link
-                  to={{
-                    pathname:
-                      "/inventory/delete/" + inventory?.itemName.toLowerCase(),
-                    state: { background: location },
-                  }}
-                >
-                  <button className="invList__items--button">
-                    <img src={deleteIcon} />
-                  </button>
-                </Link>
+              <div className="invList__items--container">
+                <div className="invList__items--wrapper-left">
+                  <p className="invList__items--item">
+                    {inventory.itemName} <img src={rightIcon} />
+                  </p>
 
-                <button className="invList__items--button">
-                  <img src={editIcon} />
-                </button>
-              </section>
+                  <div className="invList__items--container">
+                    <p className="invList__items--category">
+                      {inventory.category}
+                    </p>
+                  </div>
+
+                  <div className="invList__items--container">
+                    <div
+                      className={
+                        inventory?.status === "In Stock"
+                          ? "instock itemStatus"
+                          : "outofstock itemStatus"
+                      }
+                    >
+                      {inventory.status}
+                    </div>
+                  </div>
+                </div>
+                <div className="invList__items--wrapper-right">
+                  <div className="invList__items--container">
+                    <p className="invList__items--qty">{inventory.quantity}</p>
+                  </div>
+                  <div className="invList__items--container">
+                    <p className="invList__items--warehouse">
+                      {inventory.warehouseName}
+                    </p>
+                  </div>
+                  <div className="invList__items--container">
+                    <section className="invList__items--icons">
+                      <Link
+                        to={{
+                          pathname:
+                            "/inventory/delete/" +
+                            inventory?.itemName.toLowerCase(),
+                          state: { background: location },
+                        }}
+                      >
+                        <button className="invList__items--button">
+                          <img src={deleteIcon} />
+                        </button>
+                      </Link>
+                      <Link to="/inventory/edit">
+                        <button className="invList__items--button">
+                          <img src={editIcon} />
+                        </button>
+                      </Link>
+                    </section>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}
