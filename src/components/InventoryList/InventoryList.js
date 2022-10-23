@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./InventoryList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
@@ -9,6 +9,7 @@ import sortIcon from "../../assets/icons/sort-24px.svg";
 import axios from "axios";
 
 function InventoryList() {
+  let location = useLocation();
   const [allInventories, setAllInventories] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/inventories").then((res) => {
@@ -32,7 +33,7 @@ function InventoryList() {
               alt="search-icon"
             />
           </section>
-          <Link>
+          <Link to="/inventory/new">
             <button className="invList__button">+ Add New Item</button>
           </Link>
         </div>
@@ -63,16 +64,20 @@ function InventoryList() {
               </section>
             </div>
             <section className="invList__items--icons">
-              <Link>
+              <Link
+                to={{
+                  pathname:
+                    "/inventory/delete/" + inventory?.itemName.toLowerCase(),
+                  state: { background: location },
+                }}
+              >
                 <button className="invList__items--button">
                   <img src={deleteIcon} />
                 </button>
               </Link>
-              <Link>
-                <button className="invList__items--button">
-                  <img src={editIcon} />
-                </button>
-              </Link>
+              <button className="invList__items--button">
+                <img src={editIcon} />
+              </button>
             </section>
           </div>
         ))}
@@ -102,7 +107,6 @@ function InventoryList() {
           </section>
           <section className="invList__items--sort">
             <p className="invList__items--title">ACTIONS</p>
-            <img src={sortIcon} />
           </section>
         </div>
         {allInventories.map((inventory) => (
@@ -120,19 +124,19 @@ function InventoryList() {
               <section className="invList__items--icons">
                 <Link
                   to={{
-                    pathname: "/inventory-item/delete",
-                    // state: { background: item },
+                    pathname:
+                      "/inventory/delete/" + inventory?.itemName.toLowerCase(),
+                    state: { background: location },
                   }}
                 >
                   <button className="invList__items--button">
                     <img src={deleteIcon} />
                   </button>
                 </Link>
-                <Link to={`/inventory-item/edit${inventory.id}`}>
-                  <button className="invList__items--button">
-                    <img src={editIcon} />
-                  </button>
-                </Link>
+
+                <button className="invList__items--button">
+                  <img src={editIcon} />
+                </button>
               </section>
             </div>
           </div>
