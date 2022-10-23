@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 import searchIcon from "../../assets/icons/search-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
@@ -9,7 +9,6 @@ import sortIcon from "../../assets/icons/sort-24px.svg";
 import axios from "axios";
 
 function InventoryList() {
-  let item = useLocation();
   const [allInventories, setAllInventories] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/inventories").then((res) => {
@@ -33,7 +32,9 @@ function InventoryList() {
               alt="search-icon"
             />
           </section>
-          <button className="invList__button">+ Add New Item</button>
+          <Link>
+            <button className="invList__button">+ Add New Item</button>
+          </Link>
         </div>
       </div>
 
@@ -62,12 +63,16 @@ function InventoryList() {
               </section>
             </div>
             <section className="invList__items--icons">
-              <button className="invList__items--button">
-                <img src={deleteIcon} />
-              </button>
-              <button className="invList__items--button">
-                <img src={editIcon} />
-              </button>
+              <Link>
+                <button className="invList__items--button">
+                  <img src={deleteIcon} />
+                </button>
+              </Link>
+              <Link>
+                <button className="invList__items--button">
+                  <img src={editIcon} />
+                </button>
+              </Link>
             </section>
           </div>
         ))}
@@ -116,7 +121,7 @@ function InventoryList() {
                 <Link
                   to={{
                     pathname: "/inventory-item/delete",
-                    state: { background: item },
+                    // state: { background: item },
                   }}
                 >
                   <button className="invList__items--button">
