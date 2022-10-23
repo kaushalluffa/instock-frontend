@@ -9,6 +9,7 @@ import EditWarehouse from "../EditWarehouse/EditWarehouse"
 import AddWarehouse from "../AddWarehouse/AddWarehouse"
 import DeleteInventory from "../DeleteInventory/DeleteInventory"
 import EditInventoryItem from "../EditInventoryItem/EditInventoryItem"
+import InventoryList from "../InventoryList/InventoryList"
 
 export default function NavigationMap() {
   let location = useLocation()
@@ -32,7 +33,7 @@ export default function NavigationMap() {
           children={<InventoryItemDetails />}
         />
         <Route exact path="/warehouse" children={<WarehouseList />} />
-        <Route exact path="/inventory" children="" />
+        <Route exact path="/inventory" children={<InventoryList />} />
         <Route exact path="/" children={<WarehouseList />} />
       </Switch>
       {/* Show the requested modal when a background page is set */}
