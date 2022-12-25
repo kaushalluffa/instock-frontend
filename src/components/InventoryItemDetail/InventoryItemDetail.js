@@ -9,7 +9,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg"
 export default function InventoryItemDetails() {
   let history = useHistory()
   let { warehouseId, item } = useParams()
-  let url = "http://localhost:8080/inventories"
+  let url = `${process.env.REACT_APP_URL}/inventories`
 
   const [itemToDisplay, setItemToDisplay] = useState({
     itemName: "",

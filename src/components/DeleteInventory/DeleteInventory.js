@@ -38,7 +38,7 @@ export default function DeleteInventory() {
   //
   // Function that deletes inventory and send user back to previous page
   function submitDelete(e) {
-    const url = "http://localhost:8080/inventory/delete/" + item.item;
+    const url = `${process.env.REACT_APP_URL}/inventory/delete/` + item.item;
     fetch(url, { method: "DELETE" })
       .then((response) => {
         alert("Inventory was deleted from the system!");

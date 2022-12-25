@@ -87,7 +87,7 @@ function AddWarehouse() {
       console.log("Form has been successfully submitted")
       axios({
         method: "post",
-        url: "http://localhost:8080/warehouse/new",
+        url: `${process.env.REACT_APP_URL}/warehouse/new`,
         data: newWarehouseDetails,
       })
       resetFields()

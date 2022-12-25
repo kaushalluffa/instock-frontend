@@ -47,7 +47,7 @@ const EditInventoryItem = (props) => {
   function editInventoryItem() {
     axios({
       method: "post",
-      url: "http://localhost:8080/inventory-item/edit",
+      url: `${process.env.REACT_APP_URL}/inventory-item/edit`,
       data: editInventoryItemData,
     })
     setItemName("")

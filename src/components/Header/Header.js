@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import Logo from "../../assets/logo/InStock-Logo.svg"
 
 export default function Header() {
-  const { useState, Fragment } = React
+  const { useState } = React
   const [active, setActive] = useState("")
   const handleClick = (event) => {
     setActive(event.target.id)
@@ -14,7 +14,7 @@ export default function Header() {
     <div className="header">
       <div className="header-wrapper">
         <Link to="/">
-          <img src={Logo} className="navbar__logo"></img>
+          <img src={Logo} className="navbar__logo" alt="logo"></img>
         </Link>
         <div className="navbar">
           <div className="navbar__link">

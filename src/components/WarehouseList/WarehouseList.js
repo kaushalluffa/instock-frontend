@@ -13,7 +13,7 @@ export default function WarehouseList() {
 
   const [allWarehouses, setAllWarehouses] = useState([])
   useEffect(() => {
-    axios.get("http://localhost:8080/warehouses").then((res) => {
+    axios.get(`${process.env.REACT_APP_URL}/warehouses`).then((res) => {
       setAllWarehouses(res.data)
     })
   }, [])

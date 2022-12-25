@@ -34,7 +34,7 @@ const AddNewInventoryItem = (props) => {
     }
   }
   function getWarehouseId(name) {
-    axios.get("http://localhost:8080/warehouses").then((res) => {
+    axios.get(`${process.env.REACT_APP_URL}/warehouses`).then((res) => {
       const selectedWarehouse = res.data.find((w) => w.name === name)
       setWarehouseID(selectedWarehouse.id)
     })
@@ -53,7 +53,7 @@ const AddNewInventoryItem = (props) => {
     getWarehouseId(itemWarehouse)
     axios({
       method: "post",
-      url: "http://localhost:8080/inventory-item/create",
+      url: `${process.env.REACT_APP_URL}/inventory-item/create`,
       data: newInventoryItemData,
     })
     setItemName("")

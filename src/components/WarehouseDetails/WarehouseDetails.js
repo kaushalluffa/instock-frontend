@@ -19,7 +19,7 @@ function WarehouseDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/warehousedata/${warehouseId}`)
+      .get(`${process.env.REACT_APP_URL}/warehousedata/${warehouseId}`)
       .then((res) => {
         setWarehouseData(res.data)
       })
@@ -28,7 +28,7 @@ function WarehouseDetails() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `http://localhost:8080/inventory/${warehouseId}`,
+      url: `${process.env.REACT_APP_URL}/inventory/${warehouseId}`,
     }).then((res) => {
       setInventoryData(res.data)
     })

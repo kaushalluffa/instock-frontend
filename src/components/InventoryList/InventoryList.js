@@ -12,7 +12,7 @@ function InventoryList() {
   let location = useLocation()
   const [allInventories, setAllInventories] = useState([])
   useEffect(() => {
-    axios.get("http://localhost:8080/inventories").then((res) => {
+    axios.get(`${process.env.REACT_APP_URL}/inventories`).then((res) => {
       setAllInventories(res.data)
     })
   }, [])

@@ -36,7 +36,7 @@ function EditWarehouse() {
     e.preventDefault()
     axios({
       method: "post",
-      url: "http://localhost:8080/edit-warehouse",
+      url: `${process.env.REACT_APP_URL}/edit-warehouse`,
       data: newWarehouseDetails,
     })
     setWarehouseName("")

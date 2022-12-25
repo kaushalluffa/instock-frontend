@@ -42,7 +42,7 @@ export default function DeleteWarehouse() {
 
   //function that deletes warehouse and send user back to previous page
   function submitDelete(e) {
-    const url = 'http://localhost:8080/warehouses/delete/' + location.location;
+    const url = `${process.env.REACT_APP_URL}/warehouses/delete/` + location.location;
     //DELETE request
     fetch(url, { method: 'DELETE' })
       .then(() => {
